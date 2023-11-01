@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="bdollarapps_tokenise_link" resource="default" engine="innodb" comment="Table comment">
+        <column xsi:type="int" name="entity_id" padding="11" unsigned="false" nullable="false" identity="true" comment="Entity Id"/>
+        <column xsi:type="varchar" name="tokenise_url" length="255" comment="Tokenise Url"/>
+        <column xsi:type="varchar" name="to_mobile" length="255" comment="To Mobile"/>
+        <column xsi:type="int" name="customer_id" nullable="false" comment="RVP or Agent ID"/>
+        <column xsi:type="varchar" name="lang" nullable="true" comment="Language"/>
+        <column xsi:type="varchar" name="type" nullable="true" comment="Type of Form"/>
+        <column xsi:type="timestamp" name="create_time" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Create Time"/>
+        <column xsi:type="timestamp" name="update_time" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Update Time"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+    </table>
+</schema>

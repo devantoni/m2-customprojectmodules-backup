@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <bdollarapps>
+            <twilio_sms>
+                <twilio_format>
+                <![CDATA[Bdollar$mart: Here is the one-time link to your 5-minute.
+
+Bdollar$mart Checkup: %survery_link.
+
+Thank you!]]>
+                </twilio_format>
+                <twilio_format_es>
+                <![CDATA[Bdollar$mart: Aquí está el enlace único a sus 5 minutos.
+
+Bdollar$mart Checkup: %survery_link.
+
+¡Gracias!]]>
+                </twilio_format_es>
+                <form_expiry>60</form_expiry>
+            </twilio_sms>
+        </bdollarapps>
+    </default>
+</config>

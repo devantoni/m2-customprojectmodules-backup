@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="bdollarapps" translate="label" sortOrder="500" class="mageme-extensions">
+            <label>Bdollarapps</label>
+        </tab>
+        <section id="bdollarapps" translate="label" type="text" sortOrder="1110" showInDefault="1" showInWebsite="1"
+                 showInStore="1">
+            <label>Bdollarapps</label>
+            <tab>bdollarapps</tab>
+            <resource>MageMe_WebForms::settings</resource>
+            <group id="twilio_sms" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Twilio SMS</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="1" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Enabled</label>
+                    <comment><![CDATA[Enable twilio SMS and configure.]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="account_sid" translate="label comment" type="text" sortOrder="10" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Account SID</label>
+                </field>
+                <field id="auth_token" translate="label comment" type="text" sortOrder="15" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Account SID</label>
+                </field>
+                <field id="twilio_phone_number" translate="label comment" type="text" sortOrder="25" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Twilio Phone Number</label>
+                </field>
+                <field id="twilio_format" translate="label comment" type="textarea" sortOrder="35" showInDefault="1"
+                       showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Twilio SMS English Format</label>
+                </field>
+                <field id="twilio_format_es" translate="label comment" type="textarea" sortOrder="35" showInDefault="1"
+                       showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Twilio SMS Spanish Format</label>
+                </field>
+                <field id="tokenise_form_id" translate="label comment" type="text" sortOrder="45" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>MageMe Form ID</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="survey_form_id" translate="label comment" type="text" sortOrder="45" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Survey Form ID</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="form_expiry" translate="label comment" type="text" sortOrder="45" showInDefault="1"
+                       showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Form Expiry (Minutes)</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

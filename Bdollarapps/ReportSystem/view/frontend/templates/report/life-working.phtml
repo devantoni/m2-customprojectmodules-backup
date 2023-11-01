@@ -1,0 +1,259 @@
+<?php
+/**
+ * @var \Bdollarapps\ReportSystem\Block\Report\Life $block
+ */
+?>
+ <div class="row row-sm mt-5">
+	<div class="col-lg-12">
+		<h1 class="text-white text-center">Life</h1>
+		<div class="card">
+			<div class="card-header mb-5">
+				<div class="col-md-2">
+				</div>
+				<div class="col-md-10">
+					<label class="form-label text-white " style="text-align: end;">Months</label>
+					<select class="col-md-2 float-right form-control select2 form-select bg-white select2-hidden-accessible" name="month" id="month" tabindex="-1" aria-hidden="true">
+						<option value="">All</option>
+
+					<option value="2023-06">Jun 2023</option>
+					<option value="2023-05">May 2023</option>
+					<option value="2023-04">Apr 2023</option>
+					<option value="2023-03">Mar 2023</option>
+					<option value="2023-02">Feb 2023</option>
+					<option value="2023-01">Jan 2023</option>
+					<option value="2022-12">Dec 2022</option>
+					<option value="2022-11">Nov 2022</option>
+					<option value="2022-10">Oct 2022</option>
+					<option value="2022-09">Sep 2022</option>
+					<option value="2022-08">Aug 2022</option>
+					<option value="2022-07">Jul 2022</option>
+			</select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 179.609px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-month-container"><span class="select2-selection__rendered" id="select2-month-container" title="All">All</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+				</div>
+			</div>
+			<div class="card-body">
+				<div class="table-responsive">
+						<button id="export" class="btn">export CSV</button>
+						<button id="exportpdf" class="btn">export PDF</button>
+					<div id="basicdatatable_wrapper" class="dataTables_wrapper dt-bootstrap5">
+						<table class="table table-bordered text-nowrap border-bottom bg-white text-center" id="basicdatatable" style="border-top: transparent !important; border-radius: 0.25rem!important;">
+							<thead>
+								<tr role="row bypassme">
+									<th class="bypassme wd-15p border-bottom bg-warning" colspan="10" style="border-right: transparent !important;">Market</th>
+									<th class="bypassme wd-15p border-bottom bg-info text-white" colspan="2" style="border-right: transparent !important;">Term Insurance</th>
+									<th class="bypassme wd-15p border-bottom bg-info text-white" colspan="2" style="border-right: transparent !important;">Cash Value Insurance</th>
+									<th class="bypassme wd-15p border-bottom bg-info text-white" colspan="2" style="border-right: transparent !important;">Group Insurance</th>
+								</tr>
+								<tr role="row">
+									<th class="export-data wd-15p border-0 bg-warning">Date-Time</th>
+									<th class="export-data wd-15p border-0 bg-warning">Agent</th>
+									<th class="export-data wd-20p border-0 bg-warning">Client</th>
+									<th class="export-data wd-15p border-0 bg-warning">Zip COde</th>
+									<th class="export-data wd-15p border-0 bg-warning">Age (C)</th>
+									<th class="export-data wd-10p border-0 bg-warning">Age (S)</th>
+									<th class="export-data wd-25p border-0 bg-warning">Kids</th>
+									<th class="export-data wd-15p border-0 bg-warning">Income (C)</th>
+									<th class="export-data wd-10p border-0 bg-warning">Income (S)</th>
+									<th class="export-data wd-25p border-0 bg-warning">Mortgage</th>
+									<th class="export-data wd-25p border-0 bg-info text-white">Client</th>
+									<th class="export-data wd-25p border-0 bg-info text-white">Spouse</th>
+									<th class="export-data wd-25p border-0 bg-info text-white">Client</th>
+									<th class="export-data wd-25p border-0 bg-info text-white">Spouse</th>
+									<th class="export-data wd-25p border-0 bg-info text-white">Client</th>
+									<th class="export-data wd-25p border-0 bg-info text-white">Spouse</th>
+								</tr>
+							</thead>
+						<tbody>
+						<?php
+						$totalSelfIncome = 0;
+						$totalSpouseIncome = 0;
+						foreach ($block->getSurveyCollection() as $result):
+						$totalSelfIncome += (int) $result->getSelfIncome();
+						$totalSpouseIncome += (int) $result->getSpouseIncome();
+						?>
+						<tr class="odd">
+							<td class="export-data"><?= implode('<br/>', explode(' ', $result->getCreatedAt())) ?></td>
+							<td class="export-data"><?= $block->getCustomerName($result->getRvpAgentId()) ?></td>
+							<td class="export-data"><?= $result->getClient() ?? 'N/A' ?></td>
+							<td class="export-data"><?= $result->getZipCode() ?></td>
+							<td class="export-data"><?= $result->getSelfAge() ?? 'N/A' ?></td>
+							<td class="export-data"><?= $result->getSpouseAge() ?? 'N/A' ?></td>
+							<td class="export-data"><?= $result->getKids() ?? 'N/A' ?></td>
+							<td class="export-data"><?= $block->currencyFormat($result->getSelfIncome()) ?? 'N/A' ?></td>
+							<td class="export-data"><?= $block->currencyFormat($result->getSpouseIncome()) ?? 'N/A' ?></td>
+							<td class="export-data"><?= $result->getMortgage() ?? 'N' ?></td>
+							<td class="export-data">$0</td>
+							<td class="export-data">$0</td>
+							<td class="export-data">$0</td>
+							<td class="export-data">$0</td>
+							<td class="export-data">$0</td>
+							<td class="export-data">$0</td>
+						</tr>
+						<?php endforeach; ?>
+					</tbody>
+					<tfoot class="bg-light bypassme">
+						<tr>
+							<th class="bypassme border-0">Total</th>
+							<th class="bypassme border-0">
+								<?= $block->currencyFormat($totalSelfIncome) ?>
+							</th>
+							<th class="bypassme border-0">
+								<?= $block->currencyFormat($totalSpouseIncome) ?>
+							</th>
+							<th class="bypassme border-0"></th>
+							<th class="bypassme border-0">$300K</th>
+							<th class="bypassme border-0">$300K</th>
+							<th class="bypassme border-0">$0</th>
+							<th class="bypassme border-0">$0</th>
+							<th class="bypassme border-0">$0</th>
+							<th class="bypassme border-0">$0</th>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+	require(['jquery',
+	//'datatable',
+	'jsPDF',
+	//'jspdfAutotable',
+	//'tableHTMLExport',
+	'html2canvas'], function($, jsPDF, html2canvas) {
+		$(document).ready(function() {
+			//$('#basicdatatable').DataTable();
+			$('#export').click(function() {
+				var titles = [];
+				var data = [];
+
+				/*
+				* Get the table headers, this will be CSV headers
+				* The count of headers will be CSV string separator
+				*/
+				$('#basicdatatable th.export-data').each(function() {
+					titles.push($(this).text());
+				});
+
+				/*
+				* Get the actual data, this will contain all the data, in 1 array
+				*/
+				$('#basicdatatable td.export-data').each(function() {
+					data.push($(this).text());
+				});
+				
+				/*
+				* Convert our data to CSV string
+				*/
+				var CSVString = prepCSVRow(titles, titles.length, '');
+				CSVString = prepCSVRow(data, titles.length, CSVString);
+
+				/*
+				* Make CSV downloadable
+				*/
+				var downloadLink = document.createElement("a");
+				var blob = new Blob(["\ufeff", CSVString]);
+				var url = URL.createObjectURL(blob);
+				downloadLink.href = url;
+				downloadLink.download = "life.csv";
+
+				/*
+				* Actually download CSV
+				*/
+				document.body.appendChild(downloadLink);
+				downloadLink.click();
+				document.body.removeChild(downloadLink);
+			});
+
+			/*
+			* Convert data array to CSV string
+			* @param arr {Array} - the actual data
+			* @param columnCount {Number} - the amount to split the data into columns
+			* @param initial {String} - initial string to append to CSV string
+			* return {String} - ready CSV string
+			*/
+			function prepCSVRow(arr, columnCount, initial) {
+			var row = ''; // this will hold data
+			var delimeter = ','; // data slice separator, in excel it's `;`, in usual CSv it's `,`
+			var newLine = '\r\n'; // newline separator for CSV row
+
+			/*
+			* Convert [1,2,3,4] into [[1,2], [3,4]] while count is 2
+			* @param _arr {Array} - the actual array to split
+			* @param _count {Number} - the amount to split
+			* return {Array} - splitted array
+			*/
+			function splitArray(_arr, _count) {
+				var splitted = [];
+				var result = [];
+				_arr.forEach(function(item, idx) {
+				if ((idx + 1) % _count === 0) {
+					splitted.push(item);
+					result.push(splitted);
+					splitted = [];
+				} else {
+					splitted.push(item);
+				}
+				});
+				return result;
+			}
+			var plainArr = splitArray(arr, columnCount);
+			// don't know how to explain this
+			// you just have to like follow the code
+			// and you understand, it's pretty simple
+			// it converts `['a', 'b', 'c']` to `a,b,c` string
+			plainArr.forEach(function(arrItem) {
+				arrItem.forEach(function(item, idx) {
+				row += item + ((idx + 1) === arrItem.length ? '' : delimeter);
+				});
+				row += newLine;
+			});
+			return initial + row;
+			}
+
+			// export pdf
+			// window.jsPDF = window.jspdf.jsPDF;
+			$('#exportpdf').on('click', function () {
+                const doc = new jsPDF();
+                var elementHTML = $('#basicdatatable').html();
+                doc.fromHTML(elementHTML, 15, 15, {
+                    'width': 170
+                });
+                doc.save('life.pdf');
+				// doc.addHTML($('#basicdatatable').html(),function() {
+				// 	doc.save('life.pdf');
+			    // });
+            });
+
+			// $("#exportpdf").click(function() {
+			// 	$("#basicdatatable").tableHTMLExport({
+			// 		// csv, txt, json, pdf
+			// 		type:'pdf',
+			// 		orientation:'p',
+
+			// 		// default file name
+			// 		filename: 'tableHTMLExport.pdf',
+
+			// 		// for csv
+			// 		// separator: ',',
+			// 		// newline: '\r\n',
+			// 		// trimContent: true,
+			// 		// quoteFields: true,
+
+			// 		// CSS selector(s)
+			// 		ignoreColumns: '.bypassme',
+			// 		ignoreRows: '.bypassme',
+								
+			// 		// your html table has html content?
+			// 		htmlContent: true,
+
+			// 		// debug
+			// 		consoleLog: false,        
+
+			// 	});
+            // });
+
+		});
+	});
+</script>

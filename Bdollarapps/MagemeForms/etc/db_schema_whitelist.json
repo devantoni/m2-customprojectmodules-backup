@@ -1,0 +1,17 @@
+{
+    "bdollarapps_tokenise_link": {
+        "column": {
+            "entity_id": true,
+            "tokenise_url": true,
+            "to_mobile": true,
+            "customer_id": true,
+            "lang": true,
+            "type": true,
+            "create_time": true,
+            "update_time": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

@@ -1,0 +1,13 @@
+/* added to rectify the customer - custom attribute related confusion for app access and full access
+we are not using full_access anymore*
+*/
+.admin__field[data-index="full_access"] {
+    display: none;
+}
+
+.admin__field[data-index="app_access"] div.admin__field-label label span {
+    display: none;
+}
+.admin__field[data-index="app_access"] div.admin__field-label label:after {
+    content: "Full access";
+}

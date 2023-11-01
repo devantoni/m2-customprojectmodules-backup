@@ -1,0 +1,153 @@
+<?php 
+    $customerGroup =  $this->getGroupId();
+    $customerID = $this->getCustomerId();
+    $customerFullAccess = $this->getFullAccess($customerID);
+
+    $customerLevel1Access = $this->getLevel1Access($customerID);
+    $customerLevel2Access = $this->getLevel2Access($customerID);
+    $customerLevel3Access = $this->getLevel3Access($customerID);
+    $customerLevel4Access = $this->getLevel4Access($customerID);
+    
+    
+
+    $helper = $this->helper('Bdollarapps\LearningManagementSystem\Helper\Data');
+
+    $rvpUrl = $block->getUrl('rvp-dashboard');
+    $agentUrl = $block->getUrl('agent-dashboard');
+?>
+
+<?php
+if($customerGroup == '2'):
+?>
+    <div class="rvp_menu portal-user-menu">
+        <?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('rvp_menu')->toHtml();?>
+    </div>
+<?php elseif($customerGroup == '1'): ?>
+    <div class="agent_menu portal-user-menu">
+        <?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('agent_menu')->toHtml();?>
+    </div>
+<?php else:
+    echo "";
+endif;
+?>
+
+<?php 
+if($this->getLoggedInStatus()):
+
+    // redirect to logout if primerica status is 0
+    // echo $rvpPrimericaStatus = $this->getPrimericaStatus($customerID);
+    // var_dump($rvpPrimericaStatus);
+    // $this->redirectLogout($rvpPrimericaStatus, $customerID);
+?>
+<style>
+    header.page-header .nav-main-menu li {
+        float: left !important;
+        margin: 0px 5px !important;
+    }
+    .logout {
+        display: flex !important;
+        height: 100%;
+        align-items: center;
+        align-content: center;
+        flex-wrap: wrap;
+    }
+    .header-top-links{
+        display: block !important;
+    }
+    .login, .subscribe-top, .cms-link{
+        display: none !important;
+    }
+    .nav-before-open header.page-header .menu-wrapper .nav-tabs > li:nth-child(2) {
+        display: block;
+    }
+    @media screen and (max-width: 425px) {
+        .logout {
+            display: block !important;
+            height: 100%;
+        } 
+    }
+</style>
+<?php if($customerGroup == '1'):?>
+    <style>
+        .account-nav .item:nth-child(5), .account-nav .item:nth-child(7) {
+            display: block;
+        }
+        .account-nav .item, .block.block-dashboard-addresses, .checkout.static-menu {
+            display: none !important;
+        }
+    </style>
+<?php endif;?>
+<?php if($customerFullAccess!=1 && $customerGroup == '1'):?>
+    <style>
+        .portal-user-menu ul{
+            justify-content:normal !important;
+        }
+        .portal-user-menu ul li{
+            margin-right: 12px;
+        }
+        .full-access {
+            display: none;
+        }
+    </style>
+<?php endif;?>
+<?php if($customerLevel1Access!=1 && $customerGroup == '1'):?>
+    <style>
+        .level-1 {
+            display: none;
+        }
+    </style>
+<?php endif; ?>
+<?php if($customerLevel2Access!=1 && $customerGroup == '1'):?>
+    <style>
+        .level-2 {
+            display: none;
+        }
+    </style>
+<?php endif; ?>
+<?php if($customerLevel3Access!=1 && $customerGroup == '1'):?>
+    <style>
+        .level-3 {
+            display: none;
+        }
+    </style>
+<?php endif; ?>
+<?php if($customerLevel4Access!=1 && $customerGroup == '1'):?>
+    <style>
+        .level-4 {
+            display: none;
+        }
+    </style>
+<?php endif; ?>
+<?php if(!$helper->getActiveSubscription()):?>
+    <style>
+        .rvp_menu.portal-user-menu{
+            display: none;
+        }
+    </style>
+<?php endif; ?>
+<?php if(!$this->getCartStatus()):?>
+    <style>
+        .checkout.static-menu{
+            display: none !important;
+        }
+    </style>
+<?php endif; ?>
+<!-- check customer group and alter the logo links -->
+<?php if($customerGroup == '1' && $helper->getActiveSubscription()):?>
+    <script>
+        require(['jquery'], function($){
+            $("header.page-header a.logo").attr("href", "<?php echo $agentUrl; ?>");
+        });
+    </script>
+<?php endif; ?>
+
+<?php if($customerGroup == '2' && $helper->getActiveSubscription()):?>
+    <script>
+        require(['jquery'], function($){
+            $("header.page-header a.logo").attr("href", "<?php echo $rvpUrl; ?>");
+        });
+    </script>
+<?php endif; ?>
+<?php 
+endif; 
+?>

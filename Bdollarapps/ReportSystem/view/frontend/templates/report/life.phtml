@@ -1,0 +1,197 @@
+<?php $collection = $block->getSurveyCollection();?>
+<?php if($block->getGroupId() != 1): ?>
+<?php $list = $this->getAgentList();?>
+<?php endif; ?>
+<?php $months = $this->getMonths();?>
+ <div class="row row-sm mt-5">
+	<div class="col-lg-12">
+		<h1 class="text-center">Life</h1>
+		<div class="card">
+			<div class="card-header mb-5">
+				<div class="col-md-2">
+					<?php if($block->getGroupId() != 1): ?>
+						<label class="form-label">Agents</label>
+						<select class="form-control select2 form-select bg-white" name="agent" id="agent">
+							<option value="0">All</option>
+							<?php foreach($list as $key => $agent):?>
+								<option value="<?php echo $key;?>" <?php if($key==$block->getCurrentAgent()):?> selected <?php endif;?>><?php echo $agent;?></option>
+							<?php endforeach;?>
+						</select>
+					<?php endif; ?>
+
+                </div>
+
+          		<div class="col-md-10">
+					<label class="form-label" style="text-align: end;">Months</label>
+					<select class="col-md-2 float-right form-control select2 form-select bg-white" name="month" id="month">
+						<option value="">All</option>
+	                    <?php foreach($months as $key => $value):?>
+							<option value="<?= date('Y-m', strtotime($value));?>" <?php if(date('Y-m', strtotime($value))==$block->getCurrentMonth()):?> selected <?php endif;?>><?= date('Y-m', strtotime($value));?></option>
+						<?php endforeach;?>
+					</select>
+				</div>
+			</div>
+			<div class="card-body">
+				<div class="table-responsive">
+					<div id="basicdatatable_wrapper" class="dataTables_wrapper dt-bootstrap5">
+						<table class="table table-bordered text-nowrap border-bottom bg-white text-center" id="basicdatatable" style="border-top: transparent !important; border-radius: 0.25rem!important;">
+							<thead>
+								<tr role="row bypassme">
+									<th class="bypassme wd-15p border-bottom bg-warning" colspan="10" style="border-right: transparent !important;">Market</th>
+									<th class="bypassme wd-15p border-bottom bg-info text-white" colspan="2" style="border-right: transparent !important;">Term Insurance</th>
+									<th class="bypassme wd-15p border-bottom bg-info text-white" colspan="2" style="border-right: transparent !important;">Cash Value Insurance</th>
+									<th class="bypassme wd-15p border-bottom bg-info text-white" colspan="2" style="border-right: transparent !important;">Group Insurance</th>
+								</tr>
+								<tr role="row">
+									<th class="export-data wd-15p border-0 bg-warning">Date-Time</th>
+									<th class="export-data wd-15p border-0 bg-warning">Agent</th>
+									<th class="export-data wd-20p border-0 bg-warning">Client</th>
+									<th class="export-data wd-15p border-0 bg-warning">Zip COde</th>
+									<th class="export-data wd-15p border-0 bg-warning">Age (C)</th>
+									<th class="export-data wd-10p border-0 bg-warning">Age (S)</th>
+									<th class="export-data wd-25p border-0 bg-warning">Kids</th>
+									<th class="export-data wd-15p border-0 bg-warning">Income (C)</th>
+									<th class="export-data wd-10p border-0 bg-warning">Income (S)</th>
+									<th class="export-data wd-25p border-0 bg-warning">Mortgage</th>
+									<th class="export-data wd-25p border-0 bg-info text-white">Client</th>
+									<th class="export-data wd-25p border-0 bg-info text-white">Spouse</th>
+									<th class="export-data wd-25p border-0 bg-info text-white">Client</th>
+									<th class="export-data wd-25p border-0 bg-info text-white">Spouse</th>
+									<th class="export-data wd-25p border-0 bg-info text-white">Client</th>
+									<th class="export-data wd-25p border-0 bg-info text-white">Spouse</th>
+								</tr>
+							</thead>
+						<tbody>
+						<?php
+						$totalSelfIncome = 0;
+						$totalSpouseIncome = 0;
+						$totalSelfTerm = 0;
+						$totalSpouseTerm = 0;
+						$totalSavingSelf  = 0;
+						$totalSavingSpouse  = 0;
+						$totalGroupSelf =0 ;
+						$totalGroupSpouse =0 ;
+						foreach ($collection as $result):
+						$totalSelfIncome += (int) $result->getData('self_annual_income_before_taxes')??0;
+						$totalSpouseIncome += (int) $result->getData('spouse_annual_income_before_taxes')??0;
+						$totalSelfTerm += (int) $result->getData('self_how_much_coverage_do_you_have_with_your_Term_Insurance')??0;
+						$totalSpouseTerm += (int) $result->getData('spouse_how_much_coverage_do_you_have_with_your_Term_Insurance')??0;
+						$totalSavingSelf += (int) $result->getData('self_what_is_the_approximate_balance_of_your_savings_and_or_checking_accounts')??0;
+						$totalSavingSpouse += (int) $result->getData('spouse_what_is_the_approximate_balance_of_your_savings_and_or_checking_accounts')??0;
+						$totalGroupSelf += (int) $result->getData('self_how_much_coverage_do_you_have_with_your_group_insurance')??0;
+						$totalGroupSpouse += (int) $result->getData('spouse_how_much_coverage_do_you_have_with_your_group_insurance')??0;
+						?>
+						<tr class="odd">
+							<td class="bg-light export-data"><?= implode('<br/>', explode(' ', $result->getCreatedAt())) ?></td>
+							<td class="bg-light export-data"> <?= $block->getCustomerName($result->getData('rvp_agent_id')) ?></td>
+							<td class="bg-light export-data"> <?= $result->getInitials() ?? 'N/A' ?></td>
+							<td class="bg-light export-data"><?= $result->getZipCode() ?></td>
+							<td><?= $result->getData('self_what_is_your_age') ?? 'N/A' ?></td>
+							<td><?= $result->getData('spouse_what_is_your_age') ?? 'N/A' ?></td>
+							<td><?= $result->getData('do_you_have_children_under_the_age_of_18') ?? 'N/A' ?></td>
+							<td class="bg-light export-data"> <?= $block->currencyFormat($result->getData('self_annual_income_before_taxes')??0)?></td>
+							<td class="bg-light export-data"> <?= $block->currencyFormat($result->getData('spouse_annual_income_before_taxes')??0)?></td>
+							<td class="bg-light export-data"> <?= $result->getData('what_household_debts_do_you_have_mortgage') ?? 'N' ?></td>
+							<td class="bg-light export-data"> <?= $block->currencyFormat($result->getData('self_how_much_coverage_do_you_have_with_your_Term_Insurance')??0) ?></td>
+							<td class="bg-light export-data"><?= $block->currencyFormat($result->getData('spouse_how_much_coverage_do_you_have_with_your_Term_Insurance')??0)?></td>
+							<td class="bg-light export-data"><?= $block->currencyFormat($result->getData('self_what_is_the_approximate_balance_of_your_savings_and_or_checking_accounts')??0)?></td>
+							<td class="bg-light export-data"><?= $block->currencyFormat($result->getData('spouse_what_is_the_approximate_balance_of_your_savings_and_or_checking_accounts')??0);?></td>
+							<td class="bg-light export-data"><?= $block->currencyFormat($result->getData('self_how_much_coverage_do_you_have_with_your_group_insurance')??0) ?></td>
+							<td class="bg-light export-data"><?= $block->currencyFormat($result->getData('spouse_how_much_coverage_do_you_have_with_your_group_insurance')??0)?></td>
+						</tr>
+						<?php endforeach; ?>
+					</tbody>
+					<tfoot class="bg-light bypassme">
+						<tr>
+							<th rowspan="1" colspan="7" class="bg-light bypassme border-0">Total</th>
+							<th rowspan="1" colspan="1" class="bg-light bypassme border-0">
+								<?= $block->currencyFormat($totalSelfIncome) ?>
+							</th>
+							<th rowspan="1" colspan="1" class="bg-light bypassme border-0">
+								<?= $block->currencyFormat($totalSpouseIncome) ?>
+							</th>
+							 <th class="border-0"></th>	
+							<th rowspan="1" colspan="1" class="bg-light bypassme border-0"> <?= $block->currencyFormat($totalSelfTerm) ?></th>
+							<th rowspan="1" colspan="1" class="bg-light bypassme border-0"><?= $block->currencyFormat($totalSpouseTerm) ?></th>
+							<th rowspan="1" colspan="1" class="bg-light bypassme border-0"><?= $block->currencyFormat($totalSavingSelf) ?></th>
+							<th rowspan="1" colspan="1" class="bg-light bypassme border-0"><?= $block->currencyFormat($totalSavingSpouse) ?></th>
+							<th rowspan="1" colspan="1" class="bg-light bypassme border-0"><?= $block->currencyFormat($totalGroupSelf) ?></th>
+							<th rowspan="1" colspan="1" class="bg-light bypassme border-0"><?= $block->currencyFormat($totalGroupSpouse) ?></th>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+<script>
+    require([
+        'jquery',
+        'Bdollarapps_ReportSystem/js/datatables.responsive.min',
+        'Bdollarapps_ReportSystem/js/responsive.bootstrap5.min',
+        'Bdollarapps_ReportSystem/js/buttons.bootstrap5.min',
+        'Bdollarapps_ReportSystem/js/buttons.html5.min',
+        'Bdollarapps_ReportSystem/js/buttons.colVis.min',
+        'Bdollarapps_ReportSystem/js/buttons.print.min',
+        'Bdollarapps_ReportSystem/js/jszip.min',
+        'Bdollarapps_ReportSystem/js/pdfmake.min',
+        'Bdollarapps_ReportSystem/js/jspdf.plugin.autotable.min',
+        'Bdollarapps_ReportSystem/js/vfs_fonts',
+    ], function($, $t){
+        $(document).ready(function() {
+             $("#basicdatatable").dataTable({
+		       		bInfo : false,
+		        	paging:   false,
+		      		showNEntries : false,
+		            searching: false,
+		            processing: false,
+		            lengthChange: false,
+		        	order: [[0, 'desc']],
+		            dom: 'Bfrtip',
+		            buttons: [
+		                {
+		                    extend: 'pdf',
+		                    text  : 'Export as PDF',
+		                    title : 'Available Assets',
+		    				orientation: 'landscape',
+							customize: function(doc) {
+							    doc.defaultStyle.alignment = 'center';
+							    doc.styles.tableHeader.alignment = 'center';
+							},
+		                },
+		                {
+		                    extend: 'csv',
+		                    text  : 'Export as CSV',
+		                    title : 'Available Assets',
+		                },
+		                {
+		                    extend: 'print',
+		                    text  : 'Print',
+		                    title : 'Available Assets',
+		    				orientation: 'landscape',
+		                    className : 'buttons-html5',
+		                }
+		            ],
+        });
+
+             $("#agent").on('change', (function (e) {
+	            var agent = $(this).val();
+	            var month = $('#month').val();
+	            window.location = '<?php echo $this->getUrl('*/*/*', ['_current' => false, '_use_rewrite' => true]);?>?agent='+agent+'&month='+month;
+	        }));
+
+             $("#month").on('change', (function (e) {
+	            var agent = $('#agent').val();
+	            var month = $('#month').val();
+	            window.location = '<?php echo $this->getUrl('*/*/*', ['_current' => false, '_use_rewrite' => true]);?>?agent='+agent+'&month='+month;
+	           
+	        }));
+        });
+    })
+
+
+</script>
+
+

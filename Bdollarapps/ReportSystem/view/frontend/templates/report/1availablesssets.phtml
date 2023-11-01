@@ -1,0 +1,100 @@
+<?php
+//echo $customerId = $block->getCustomerId();
+//echo $groupId = $block->getGroupId();
+echo $resultIds = $block->getResultIds();
+
+// foreach($resultIds as $resultId){
+//     echo $resultId;
+    // $resultValue = $block->getResultValue($resultIds);
+//   print_r($resultValue);
+// }
+echo '<pre>';
+print_r($block->getSurveyCollection()->getData());
+echo '</pre>';
+?>
+<div class="row row-sm mt-5">
+    <div class="col-lg-12">
+        <h1 class="text-white text-center">Available Assets</h1>
+        <div class="card">
+            <div class="card-header mb-5">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-10">
+                    <label class="form-label text-white " style="text-align: end;">Months</label>
+                    <select class="col-md-2 float-right form-control select2 form-select bg-white select2-hidden-accessible" name="month" id="month" tabindex="-1" aria-hidden="true">
+                        <option value="">All</option>
+                        <option value="2023-06">Jun 2023</option>
+                        <option value="2023-05">May 2023</option>
+                        <option value="2023-04">Apr 2023</option>
+                        <option value="2023-03">Mar 2023</option>
+                        <option value="2023-02">Feb 2023</option>
+                        <option value="2023-01">Jan 2023</option>
+                        <option value="2022-12">Dec 2022</option>
+                        <option value="2022-11">Nov 2022</option>
+                        <option value="2022-10">Oct 2022</option>
+                        <option value="2022-09">Sep 2022</option>
+                        <option value="2022-08">Aug 2022</option>
+                        <option value="2022-07">Jul 2022</option>
+                    </select>
+                    <span class="select2 select2-container select2-container--default" dir="ltr" style="width: 256px;">
+                    <span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-month-container"><span class="select2-selection__rendered" id="select2-month-container" title="All">All</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <div id="basicdatatable_wrapper" class="dataTables_wrapper dt-bootstrap5"><div class="dt-buttons btn-group flex-wrap">   <button class="btn btn-primary buttons-pdf buttons-html5" tabindex="0" aria-controls="basicdatatable" type="button"><span>Export as PDF</span></button> <button class="btn btn-primary buttons-csv buttons-html5" tabindex="0" aria-controls="basicdatatable" type="button"><span>Export as CSV</span></button> <button class="btn btn-primary buttons-print buttons-html5" tabindex="0" aria-controls="basicdatatable" type="button"><span>Print</span></button> </div><table class="table table-bordered text-nowrap border-bottom bg-white text-center dataTable" id="basicdatatable" style="border-top: transparent !important; border-radius: 0.25rem !important; width: 1877px;" role="grid">
+                                <thead>
+                                    <tr role="row"><th class="wd-15p border-bottom bg-warning" colspan="10" style="border-right: transparent !important;" rowspan="1">Market</th><th class="wd-15p border-bottom bg-success text-white" colspan="5" style="border-right: transparent !important;" rowspan="1">Assets</th></tr>
+                                    <tr role="row"><th class="wd-15p border-0 bg-warning sorting sorting_asc" tabindex="0" aria-controls="basicdatatable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Date-Time: activate to sort column descending" style="width: 98px;">Date-Time</th><th class="wd-15p border-0 bg-warning sorting" tabindex="0" aria-controls="basicdatatable" rowspan="1" colspan="1" aria-label="Agent: activate to sort column ascending" style="width: 66px;">Agent</th><th class="wd-20p border-0 bg-warning sorting" tabindex="0" aria-controls="basicdatatable" rowspan="1" colspan="1" aria-label="Client: activate to sort column ascending" style="width: 67px;">Client</th><th class="wd-15p border-0 bg-warning sorting" tabindex="0" aria-controls="basicdatatable" rowspan="1" colspan="1" aria-label="Zip COde: activate to sort column ascending" style="width: 86px;">Zip COde</th><th class="wd-15p border-0 bg-warning sorting" tabindex="0" aria-controls="basicdatatable" rowspan="1" colspan="1" aria-label="Age (C): activate to sort column ascending" style="width: 71px;">Age (C)</th><th class="wd-10p border-0 bg-warning sorting" tabindex="0" aria-controls="basicdatatable" rowspan="1" colspan="1" aria-label="Age (S): activate to sort column ascending" style="width: 70px;">Age (S)</th><th class="wd-25p border-0 bg-warning sorting" tabindex="0" aria-controls="basicdatatable" rowspan="1" colspan="1" aria-label="Kids: activate to sort column ascending" style="width: 48px;">Kids</th><th class="wd-15p border-0 bg-warning sorting" tabindex="0" aria-controls="basicdatatable" rowspan="1" colspan="1" aria-label="Income (C): activate to sort column ascending" style="width: 102px;">Income (C)</th><th class="wd-10p border-0 bg-warning sorting" tabindex="0" aria-controls="basicdatatable" rowspan="1" colspan="1" aria-label="Income (S): activate to sort column ascending" style="width: 101px;">Income (S)</th><th class="wd-25p border-0 bg-warning sorting" tabindex="0" aria-controls="basicdatatable" rowspan="1" colspan="1" aria-label="Mortgage: activate to sort column ascending" style="width: 104px;">Mortgage</th><th class="wd-25p border-0 bg-success text-white sorting" tabindex="0" aria-controls="basicdatatable" rowspan="1" colspan="1" aria-label="Savings: activate to sort column ascending" style="width: 83px;">Savings</th><th class="wd-25p border-0 bg-success text-white sorting" tabindex="0" aria-controls="basicdatatable" rowspan="1" colspan="1" aria-label="Rollovers: activate to sort column ascending" style="width: 109px;">Rollovers</th><th class="wd-25p border-0 bg-success text-white sorting" tabindex="0" aria-controls="basicdatatable" rowspan="1" colspan="1" aria-label="IRA: activate to sort column ascending" style="width: 37px;">IRA</th><th class="wd-25p border-0 bg-success text-white sorting" tabindex="0" aria-controls="basicdatatable" rowspan="1" colspan="1" aria-label="Annuity: activate to sort column ascending" style="width: 84px;">Annuity</th><th class="wd-25p border-0 bg-success text-white sorting" tabindex="0" aria-controls="basicdatatable" rowspan="1" colspan="1" aria-label="Inheritance: activate to sort column ascending" style="width: 121px;">Inheritance</th></tr>
+                                </thead>
+                                <tbody>
+
+
+                                                                                <tr class="odd">
+                                        <td class="sorting_1">08/08/2022<br>03:03 PM</td>
+                                        <td>tyler stiles</td>
+                                        <td>ZZZ</td>
+                                        <td>66061</td>
+                                        <td>19</td>
+                                        <td>N/A</td>
+                                        <td>N</td>
+                                        <td>$10K</td>
+                                        <td>N/A</td>
+                                        <td>N</td>
+                                        <td>$10K</td>
+                                        <td>$0</td>
+                                        <td>$0</td>
+                                        <td>$0</td>
+                                        <td>$0</td>
+                                    </tr><tr class="even">
+                                        <td class="sorting_1">09/17/2022<br>09:39 AM</td>
+                                        <td>tyler stiles</td>
+                                        <td>QRS</td>
+                                        <td>66061</td>
+                                        <td>30</td>
+                                        <td>28</td>
+                                        <td>Y</td>
+                                        <td>$160K</td>
+                                        <td>$80K</td>
+                                        <td>Y</td>
+                                        <td>$30K</td>
+                                        <td>$75K</td>
+                                        <td>$90K</td>
+                                        <td>$0</td>
+                                        <td>$0</td>
+                                    </tr></tbody>
+                                    <tfoot class="bg-light">
+                                        <tr><th colspan="7" class="border-0" rowspan="1">Total</th><th class="border-0" rowspan="1" colspan="1">$170K</th><th class="border-0" rowspan="1" colspan="1">$80K</th><th class="border-0" rowspan="1" colspan="1"></th><th class="border-0" rowspan="1" colspan="1">$40K</th><th class="border-0" rowspan="1" colspan="1">$75K</th><th class="border-0" rowspan="1" colspan="1">$90K</th><th class="border-0" rowspan="1" colspan="1">$0</th><th class="border-0" rowspan="1" colspan="1">$0</th></tr>
+                                    </tfoot>
+                                </table></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+<script type="text/javascript">
+    require(['jquery','datatable'], function($) {
+        $('#basicdatatable').DataTable();
+    });
+</script>

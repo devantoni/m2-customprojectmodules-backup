@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd"> 
+    <head>
+        <css src="Webkul_LearningManagementSystem::css/course.css"/>
+        <css src="Webkul_LearningManagementSystem::css/plyr.css"/>
+        <!-- <link src="Webkul_LearningManagementSystem::js/course/courseview.js"/> -->
+        <link src="Webkul_LearningManagementSystem::js/bin/plyr.js"/>
+    </head>
+    <body> 
+        <referenceContainer name="content"> 
+            <block class="Webkul\LearningManagementSystem\Block\Course\CourseView" name="lsm_course_view" template="Bdollarapps_LearningManagementSystem::course/view/course.phtml" cacheable="false"> 
+            </block> 
+        </referenceContainer> 
+    </body> 
+</page>

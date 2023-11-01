@@ -1,0 +1,296 @@
+<?php
+/**
+ * @var $block \Bdollarapps\ReportSystem\Block\Report\AssetSummary
+ */
+?>
+<?php $collection = $block->getSurveyCollection();?>
+<?php if($block->getGroupId() != 1): ?>
+<?php $list = $this->getAgentList();?>
+<?php endif; ?>
+<?php $months = $this->getMonths();?>
+<?php $results = $this->getAgentWiseData();?>
+<style>
+	.w-20 {
+    width: 20%!important;
+    float: left;
+}
+.text-center {
+    text-align: center!important;
+}
+.text-nowrap {
+    white-space: nowrap!important;
+}
+.border-bottom {
+    border-bottom: 1px solid #eaedf1!important;
+}
+.chart-container { margin-bottom:20px; }
+.wd-15p { text-align:center; font-weight:bold;color: #000; }
+.col-lg-12 {     display: inline-block;
+    margin-bottom: 10px;
+    width: 100%; }
+</style>
+<?php $sums = [];?>
+<?php $i = 0;?>
+<?php foreach($results->getData() as $key => $record):?>
+	 <?php $color = $this->getRandomColorHash($i);?>
+	<?php
+				$chart[] = array(
+                    'label' => isset($list[$record['rvp_agent_id']])?$list[$record['rvp_agent_id']]:'N/A',
+                    'borderWidth' => 2,
+                    'backgroundColor' => $color,
+                    'borderColor' => $color,
+                    'pointBackgroundColor' => '#ffffff',
+                    'data' => array($record['tot_ira_self']+$record['tot_ira_spouse'], $record['tot_rollover_self']+$record['tot_rollover_spouse'],$record['tot_savings'],$record['tot_annuity_self']+$record['tot_annuity_spouse'],$record['tot_inheritance']),
+                );
+                ?>
+<?php endforeach;?>
+
+<div class="row row-sm mt-5">
+	<div class="col-lg-12">
+		<h1 class="text-center d-print-none">Assets Summary</h1>
+		<div class="card">
+			<div class="card-header mb-5 d-print-none">
+				<div class="col-md-2">
+					<?php if($block->getGroupId() != 1): ?>
+                	<label class="form-label">Agents</label>
+                	<select class="form-control select2 form-select bg-white" name="agent" id="agent">
+						<option value="0">All</option>
+                        <?php foreach($list as $key => $agent):?>
+							<option value="<?php echo $key;?>" <?php if($key==$block->getCurrentAgent()):?> selected <?php endif;?>><?php echo $agent;?></option>
+                        <?php endforeach;?>
+					</select>
+					<?php endif; ?>
+                </div>
+
+          		<div class="col-md-10">
+					<label class="form-label" style="text-align: end;">Months</label>
+					<select class="col-md-2 float-right form-control select2 form-select bg-white" name="month" id="month">
+						<option value="">All</option>
+	                    <?php foreach($months as $key => $value):?>
+							<option value="<?= date('Y-m', strtotime($value));?>" <?php if(date('Y-m', strtotime($value))==$block->getCurrentMonth()):?> selected <?php endif;?>><?= date('Y-m', strtotime($value));?></option>
+						<?php endforeach;?>
+					</select>
+				</div>
+               
+			</div>
+			<div class="card-body bg-white mx-5 pt-5 px-5 mb-5" id="printTable" style="border-radius: 0.25rem!important;">
+
+				<div class="dt-buttons btn-group dt-buttons btn-group mb-1 col-lg-6 d-print-none">
+				    <button class="btn btn-primary buttons-pdf buttons-html5 export" id="pdf" tabindex="0" aria-controls="myTable">
+				        <span>Export as PDF</span>
+				    </button> 
+				    <button class="btn btn-primary buttons-csv buttons-html5 export" id="csv" tabindex="0" aria-controls="myTable">
+				        <span>Export as CSV</span>
+				    </button> 
+				    <button class="btn btn-primary buttons-print buttons-html5" onclick="window.print()" tabindex="0" aria-controls="myTable">
+				        <span>Print</span>
+				    </button> 
+				</div>
+				<div class="chart-container col-md-6 mx-auto">
+					<canvas id="chartBar1" class="h-275"></canvas>
+				</div>
+				<div class="row pt-5">
+					<table class="table table-bordered text-nowrap border-bottom bg-white text-center w-20">
+						<thead>
+							<tr>
+								<th class="wd-15p border-bottom" colspan="2">IRA</th>
+							</tr>
+						</thead>
+						<tbody>
+                   	 		<?php foreach($results->getData() as $key => $record):?>
+							<tr>
+								<td><?= isset($list[$record['rvp_agent_id']])?$list[$record['rvp_agent_id']]:'N/A';?></td>
+								<td> <?= $block->currencyFormat($record['tot_ira_self']+$record['tot_ira_spouse']) ?></td>
+							</tr>
+							<?php endforeach;?>
+						</tbody>
+					</table>
+					<table class="table table-bordered text-nowrap border-bottom bg-white text-center w-20">
+						<thead>
+							<tr>
+								<th class="wd-15p border-bottom" colspan="2">Rollover</th>
+							</tr>
+						</thead>
+						<tbody>
+                   	 		<?php foreach($results->getData() as $key => $record):?>
+							<tr>
+								<td><?= isset($list[$record['rvp_agent_id']])?$list[$record['rvp_agent_id']]:'N/A';?></td>
+								<td> <?= $block->currencyFormat($record['tot_rollover_self']+$record['tot_rollover_spouse']) ?></td>
+							</tr>
+							<?php endforeach;?>
+						</tbody>
+					</table>
+					<table class="table table-bordered text-nowrap border-bottom bg-white text-center w-20">
+						<thead>
+							<tr>
+								<th class="wd-15p border-bottom" colspan="2">Savings</th>
+							</tr>
+						</thead>
+						<tbody>
+                   	 		<?php foreach($results->getData() as $key => $record):?>
+							<tr>
+								<td><?= isset($list[$record['rvp_agent_id']])?$list[$record['rvp_agent_id']]:'N/A';?></td>
+								<td> <?= $block->currencyFormat($record['tot_savings'])?></td>
+							</tr>
+							<?php endforeach;?>
+						</tbody>
+					</table>
+					<table class="table table-bordered text-nowrap border-bottom bg-white text-center w-20">
+						<thead>
+							<tr>
+								<th class="wd-15p border-bottom" colspan="2">Annuity</th>
+							</tr>
+						</thead>
+						<tbody>
+                   	 		<?php foreach($results->getData() as $key => $record):?>
+							<tr>
+								<td><?= isset($list[$record['rvp_agent_id']])?$list[$record['rvp_agent_id']]:'N/A';?></td>
+								<td> <?= $block->currencyFormat($record['tot_annuity_self']+$record['tot_annuity_spouse'])?></td>
+							</tr>
+							<?php endforeach;?>
+						</tbody>
+					</table>
+					<table class="table table-bordered text-nowrap border-bottom bg-white text-center w-20">
+						<thead>
+							<tr>
+								<th class="wd-15p border-bottom" colspan="2">Inheritance</th>
+							</tr>
+						</thead>
+						<tbody>
+                   	 		<?php foreach($results->getData() as $key => $record):?>
+							<tr>
+								<td><?= isset($list[$record['rvp_agent_id']])?$list[$record['rvp_agent_id']]:'N/A';?></td>
+								<td> <?= $block->currencyFormat($record['tot_inheritance'])?></td>
+							</tr>
+							<?php endforeach;?>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<form method="post" action="<?php echo $this->getUrl('report/report/assetsummaryExport');?>" target="_blank" id="chart_pdf">
+  	<input type="hidden" name="form_key" value="<?php echo $block->getFormKey() ?>" />
+	<input type="hidden" name="img" value="" id="chart_img">
+	<input type="hidden" name="type" value="" id="type">
+	<input type="hidden" name="agent" value="" id="agent">
+	<input type="hidden" name="agent" value="" id="agent">
+	<input type="hidden" name="month" value="" id="month">
+</form>
+
+<script>
+    require([
+        'jquery',
+        'Bdollarapps_ReportSystem/js/datatables.responsive.min',
+        'Bdollarapps_ReportSystem/js/responsive.bootstrap5.min',
+        'Bdollarapps_ReportSystem/js/buttons.bootstrap5.min',
+        'Bdollarapps_ReportSystem/js/buttons.html5.min',
+        'Bdollarapps_ReportSystem/js/buttons.colVis.min',
+        'Bdollarapps_ReportSystem/js/buttons.print.min',
+        'Bdollarapps_ReportSystem/js/jszip.min',
+        'Bdollarapps_ReportSystem/js/pdfmake.min',
+        'Bdollarapps_ReportSystem/js/jspdf.plugin.autotable.min',
+        'Bdollarapps_ReportSystem/js/vfs_fonts',
+        'Bdollarapps_ReportSystem/js/charts',
+        'Bdollarapps_ReportSystem/js/chart',
+        'Bdollarapps_ReportSystem/js/charts-c3_d3.v5.min',
+        'Bdollarapps_ReportSystem/js/charts-c3_c3-chart',
+        'Bdollarapps_ReportSystem/js/chart_Chart.bundle',
+        'domReady!'
+    ], function($){
+        $(document).ready(function() {
+             var ctx = document.getElementById("chartBar1").getContext('2d');
+			var myChart = new Chart(ctx, {
+				type: 'bar',
+				data: {
+				labels: ["IRA", "Rollover", "Savings", "Annuity", "Inheritance"],
+				datasets : <?php echo json_encode($chart);?>
+			   },
+				options: {
+					responsive: true,
+					maintainAspectRatio: false,
+					legend: {
+						display: true
+					},
+					scales: {
+						yAxes: [{
+							ticks: {
+								beginAtZero: true,
+								fontColor: "#000000",
+				               	callback: function(value, index, values) {
+				                    if (value >= 1000000) {
+				                      return "$" + (value / 1000000) + "M";
+				                    } else if (value >= 1000) {
+				                      return "$" + (value / 1000) + "K";
+				                    } else {
+				                      return "$" + value;
+				                    }
+				               	}
+							},
+							gridLines: {
+								display: false,
+								color: '#000000'
+							},
+	    					stacked: true,
+						}],
+						xAxes: [{
+							ticks: {
+								display: true,
+								fontColor: "#000000",
+							},
+							gridLines: {
+								display: false,
+								color: '#000000'
+							},
+	    					stacked: true,
+						}]
+					},
+					legend: {
+		            	display: true
+					},
+					tooltips: {
+				      callbacks: {
+				        label: function(tooltipItem, data) {
+	                		var label = data.datasets[tooltipItem.datasetIndex].label || '-';
+		                    label += ': $'+ data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+
+		                    return label;
+				        }
+				      }
+				    },
+				}
+			});
+             $("#agent").on('change', (function (e) {
+	            var agent = $(this).val();
+	            var month = $('#month').val();
+	            window.location = '<?php echo $this->getUrl('*/*/*', ['_current' => false, '_use_rewrite' => true]);?>?agent='+agent+'&month='+month;
+	        }));
+
+             $("#month").on('change', (function (e) {
+	            var agent = $('#agent').val();
+	            var month = $('#month').val();
+	            window.location = '<?php echo $this->getUrl('*/*/*', ['_current' => false, '_use_rewrite' => true]);?>?agent='+agent+'&month='+month;
+	           
+	        }));
+
+               $(document).on('click',".export", (function (e) {
+			        var type = $(this).attr('id');
+		            var agent = $('#agent').val();
+		            var month = $('#month').val();
+		        	var chart_img = document.getElementById("chartBar1").toDataURL();
+		        	$('#chart_img').val(chart_img);
+		        	$('#type').val(type);
+		        	$('#agent').val(agent);
+		        	$('#month').val(month);
+		        	$('#chart_pdf').submit();
+
+			        return false;
+			    }));
+        });
+    })
+
+
+</script>
+

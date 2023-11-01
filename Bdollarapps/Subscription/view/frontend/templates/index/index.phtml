@@ -1,0 +1,57 @@
+<?php $helper = $this->helper('Bdollarapps\Subscription\Helper\Data');?>
+<?php $customerId = $helper->getCustomerBillsById();?>
+
+<?php if($customerId):?>
+<?php $getfundata= $helper->getSubscriptionDetail($customerId);?>
+<?php $decodedata = json_decode($getfundata);?>
+<?php $decodedata = $decodedata[0];?>
+<script type='text/javascript' id='billsby-header-script-js-after'>
+				window.billsbyData = {
+                    cid: "<?php echo $customerId;?>"
+                };
+</script>
+<h2><?php echo __('Your Plan Details');?></h2>
+<p><?php echo __('Plan Name');?>: <?php echo $decodedata->planName; ?></p>
+<p><?php echo __('Status:');?> <?php echo $decodedata->status; ?></p>
+<p><?php echo __('Next Billing Date:');?><?php echo date("d-m-Y", strtotime($decodedata->nextBilling)); ?></p>
+<p><?php echo __('Created Date:');?> <?php echo date("d-m-Y", strtotime($decodedata->createdOn)); ?></p>
+<script src="https://checkoutlib.billsby.com/checkout.min.js" data-billsby-company="bdollarsmart"></script>
+<a href="javascript:void(0)" data-billsby-type="account" class="subscription-button" data-billsby-redirect="<?php echo $block->getUrl('*/*/*', ['_current' => true, '_use_rewrite' => true]);?>"  data-billsby-action="paymentdetails">Update plan details</a>
+<br/>
+<a href="javascript:void(0)" data-billsby-type="account" class="subscription-button" data-billsby-redirect="<?php echo $block->getUrl('*/*/*', ['_current' => true, '_use_rewrite' => true]);?>"  data-billsby-action="changeplan">Change your plan</a>
+ <?php 
+ 	$template = '<table class = "bds_rvp_billing_table">
+                            <thead>
+                                <th>Invoice Number</th>
+                                <th>Amount</th>
+                                <th>Creation Date</th>
+                                <th>Status</th>
+								<th>Action</th>
+                            </thead>
+                            <tbody>
+                            '; ?>
+<?php 
+		$invoices_data = $helper->getBillsInvoice($customerId);
+		$invoices_data = json_decode($invoices_data);
+	
+		foreach ($invoices_data as $key => $invoice) {
+		    $invoice_number = $invoice->invoiceNumber;
+		    $amount = $invoice->formattedAmount;
+		    $status = $invoice->status;
+		    $date_created = $invoice->createdOn;
+		    $template.='<tr>
+		                    <td>'.$invoice_number.'</td>
+		                    <td>'.$amount.'</td>
+		                    <td>'.$date_created.'</td>
+		                    <td>'.$status.'</td>
+							<td>
+								
+							</td>
+		                </tr>';
+		    
+		}
+		$template .= '</tbody>
+		            </table>'; 
+?>
+<?php echo $template;?>
+<?php endif;?>

@@ -1,0 +1,25 @@
+<?php 
+ $helper = $this->helper('Bdollarapps\LearningManagementSystem\Helper\Data');
+
+?>
+<?php if($helper->getActiveSubscription()):?>
+
+<div class="content-block content-box-block">
+    <div class="mgs-content-box box-vertical">
+	    <div class="content-wrapper">
+		    <h4>Level 3</h4>
+		    <div class="content"><p>Master the App</p>
+				<div class="panel-block-row panel-block block98 col-tb-12 col-mb-12 text-center gradient-button">
+					<div style="">
+						<div class="content-block mgs-button-block button-center button-shadow">
+							 <button class="level-3-button" onclick="setLocation('<?php echo $this->getUrl('lms/course/view',['id'=>8]);?>')" <?php if(!$helper->getQuickCourseFinish()):?> disabled <?php endif;?>>
+			                    <span>Get Started</span>
+			                </button>
+						</div>
+					</div>
+				</div>
+			</div>
+	    </div>
+    </div>
+</div>
+<?php endif; ?>

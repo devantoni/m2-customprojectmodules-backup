@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"  xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<head>       
+		<!-- <css src="Bdollarapps_ReportSystem::css/jquery.dataTables.min.css"/>    -->
+		<css src="Bdollarapps_ReportSystem::css/dataTables.bootstrap5.css"/>      
+		<css src="Bdollarapps_ReportSystem::css/buttons.bootstrap5.min.css"/>      
+		<css src="Bdollarapps_ReportSystem::css/responsive.bootstrap5.css"/>      
+	</head>
+	<body>
+		<referenceContainer name="content">
+			<block class="Bdollarapps\ReportSystem\Block\Report\Life" name="report.life" as="report_life" template="Bdollarapps_ReportSystem::report/life.phtml" cacheable="false" />
+		</referenceContainer>
+	</body>
+</page>

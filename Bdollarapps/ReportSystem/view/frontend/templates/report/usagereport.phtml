@@ -1,0 +1,342 @@
+	<?php
+/**
+ * @var $block \Bdollarapps\ReportSystem\Block\Report\UsageReport
+ */
+?>
+
+<?php
+$customerID = $block->getCustomerId();
+$groupID = $block->getGroupId();
+$collections = $block->getSurveyCollection();
+$currentUserList = $block->getSellers();
+$months = $this->getMonths();
+
+// foreach($collections as $collection){
+// 	var_dump($collection->getData());
+// }
+
+?>
+<div class="row row-sm mt-5">
+	<div class="col-lg-12">
+		<h1 class="text-center"><?= __('Usage Report') ?></h1>
+			<div class="card custom-card">
+				<div class="card-header mb-5">
+					<div class="col-md-2">
+					</div>
+					<div class="col-md-10">
+					<label class="form-label" style="text-align: end;">Months</label>
+					<select class="col-md-2 float-right form-control select2 form-select bg-white" name="month" id="month">
+						<option value="">All</option>
+	                    <?php foreach($months as $key => $value):?>
+							<option value="<?= date('Y-m', strtotime($value));?>" <?php if(date('Y-m', strtotime($value))==$block->getCurrentMonth()):?> selected <?php endif;?>><?= date('Y-m', strtotime($value));?></option>
+						<?php endforeach;?>
+					</select>
+				</div>
+               
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+							<table class="table text-nowrap border-bottom bg-white bg-light text-center dataTable no-footer" id="basicdatatable">
+								<thead>
+									<tr>
+										<th colspan="4" class="text-white p-3" style="border: 2px solid #0767ab; background-color: #0767ab!important ">COMPLETED CHECKUPS</th>
+									</tr>
+									<tr>
+										<th>Sr. No.</th>
+										<th>Image</th>
+										<th>Name</th>
+										<th>Checkups</th>
+									</tr>
+								</thead>
+								<tbody>
+
+								<?php
+								$i = 1;
+								$rvp =  [];
+								
+								foreach($collections as $item):
+									$color = $block->getRandomColorClass($i);
+								if (!$item->getRvpAgentId()) {
+									continue;
+								}else{
+									$rvp[]=$item->getRvpAgentId();
+								}
+								$name = $block->getCustomerName($item->getRvpAgentId());
+								?>
+
+									<tr style="background-color: #f5f6fb; cursor: pointer;" class="odd">
+										<td><?php echo $i;?>.</td>
+										<?php $i++;?>
+										<td>
+											<span class="avatar  brround cover-image <?= $color;?>"><?= $block->getInitials($name) ?><span>
+										</td>
+										<td><?= $name ?></td>
+										<td>
+											<div class="progress">
+												<div class="progress-bar <?= $color;?>" role="progressbar" style="width: <?= $item->getTotals() ?>%" aria-valuenow="<?= $item->getTotals() ?>" aria-valuemin="0" aria-valuemax="100">
+													<a href="<?php echo $this->getUrl('report/report/checkupresults',['agent'=>$item->getRvpAgentId()]);?>"><?= $item->getTotals() ?></a>
+												</div>
+											</div>
+										</td>
+									</tr>
+								<?php endforeach; ?>
+								<?php if($groupID != 1): ?>
+								<?php foreach ($currentUserList as $key => $value):?>
+									<?php $color = $block->getRandomColorClass($i);?>
+									<?php if(!in_array($value, $rvp)):?>
+										<?php $name = $block->getCustomerName($value);?>
+										<tr style="background-color: #f5f6fb; cursor: pointer;" onclick="window.location.href = ``" class="odd">
+										<td class="sorting_1"><?= $i++ ?></td>
+										<?php $i++;?>
+										<td>
+											<span class="avatar  brround cover-image <?= $color;?>"><?= $block->getInitials($name) ?><span>
+										</td>
+										<td><?= $name ?></td>
+										<td>
+											<div class="progress">
+												<div class="progress-bar <?= $color;?>" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+													0
+												</div>
+											</div>
+										</td>
+									</tr>
+									<?php endif;?>
+								<?php endforeach;?>
+								<?php endif; ?>	
+								
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+<style>
+	.bg-secondary {
+    background: #fb6b25!important
+}
+
+a.bg-secondary:focus,a.bg-secondary:hover,button.bg-secondary:focus,button.bg-secondary:hover {
+    background-color: #f2325e!important
+}
+
+.bg-success {
+    background: #09ad95!important
+}
+
+a.bg-success:focus,a.bg-success:hover,button.bg-success:focus,button.bg-success:hover {
+    background-color: #15bf42!important
+}
+
+.bg-info {
+    background: #45aaf2!important
+}
+
+a.bg-info:focus,a.bg-info:hover,button.bg-info:focus,button.bg-info:hover {
+    background-color: #1eb0e2!important
+}
+
+.bg-warning {
+    background: #f7b731!important
+}
+
+a.bg-warning:focus,a.bg-warning:hover,button.bg-warning:focus,button.bg-warning:hover {
+    background-color: #e0a325!important
+}
+
+.bg-danger {
+    background: #f82649!important
+}
+
+a.bg-danger:focus,a.bg-danger:hover,button.bg-danger:focus,button.bg-danger:hover {
+    background-color: #de223d!important
+}
+
+.bg-light {
+    background-color: #f8f9fa!important
+}
+
+a.bg-light:focus,a.bg-light:hover,button.bg-light:focus,button.bg-light:hover {
+    background-color: #f1f1f9!important
+}
+
+.bg-dark {
+    background-color: #343a40!important
+}
+
+a.bg-dark:focus,a.bg-dark:hover,button.bg-dark:focus,button.bg-dark:hover {
+    background-color: #1d2124!important
+}
+
+.bg-facebook {
+    background: #2b4170!important
+}
+
+.bg-secondary-gradient {
+    background: linear-gradient(to bottom right,#9070ff 0,#ff5d9e)!important
+}
+
+a.bg-secondary-gradient:focus,a.bg-secondary-gradient:hover,button.bg-secondary-gradient:focus,button.bg-secondary-gradient:hover {
+    background-color: #fb6b25!important
+}
+
+.bg-success-gradient {
+    background: linear-gradient(to bottom right,#4be8d4 0,#129bd2)!important
+}
+
+a.bg-success-gradient:focus,a.bg-success-gradient:hover,button.bg-success-gradient:focus,button.bg-success-gradient:hover {
+    background-color: #448700!important
+}
+
+.bg-info-gradient {
+    background: linear-gradient(to bottom right,#1e63c3 0,#00f2fe)!important
+}
+
+a.bg-info-gradient:focus,a.bg-info-gradient:hover,button.bg-info-gradient:focus,button.bg-info-gradient:hover {
+    background-color: #1594ef!important
+}
+
+.bg-warning-gradient {
+    background: linear-gradient(to bottom right,#f66b4e 0,#fbc434)!important
+}
+
+a.bg-warning-gradient:focus,a.bg-warning-gradient:hover,button.bg-warning-gradient:focus,button.bg-warning-gradient:hover {
+    background-color: #fbb034!important
+}
+
+.bg-danger-gradient {
+    background-image: linear-gradient(to bottom right,#f1bf64 0,#f71d36)!important
+}
+
+a.bg-danger-gradient:focus,a.bg-danger-gradient:hover,button.bg-danger-gradient:focus,button.bg-danger-gradient:hover {
+    background-color: #a11918!important
+}
+
+.bg-light-gradient {
+    background-color: #f8f9fa!important
+}
+
+a.bg-light-gradient:focus,a.bg-light-gradient:hover,button.bg-light-gradient:focus,button.bg-light-gradient:hover {
+    background-color: #dae0e5!important
+}
+
+.bg-dark-gradient {
+    background-color: #343a40!important
+}
+
+a.bg-dark-gradient:focus,a.bg-dark-gradient:hover,button.bg-dark-gradient:focus,button.bg-dark-gradient:hover {
+    background-color: #1d2124!important
+}
+
+.bg-facebook-gradient {
+    background: linear-gradient(to bottom right,#3b5998,#2b4170)!important
+}
+
+.bg-white {
+    background-color: #fff!important
+}
+
+.bg-transparent {
+    background-color: transparent!important
+}
+.brround {
+    border-radius: 50%!important;
+}
+.avatar {
+    color: #fff;
+    display: inline-block;
+    font-size: .875rem;
+    font-weight: 500;
+    position: relative;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    vertical-align: bottom;
+}
+.avatar {
+    height: 2rem;
+    line-height: 2rem;
+    width: 2rem;
+}
+.progress-bar {
+    color: #fff;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    transition: width .6s ease;
+    white-space: nowrap;
+    border-radius: 7px;
+    display: flex;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+</style>
+<font src="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900)" />
+<script>
+    require([
+        'jquery',
+        'Bdollarapps_ReportSystem/js/datatables.responsive.min',
+        'Bdollarapps_ReportSystem/js/responsive.bootstrap5.min',
+        'Bdollarapps_ReportSystem/js/buttons.bootstrap5.min',
+        'Bdollarapps_ReportSystem/js/buttons.html5.min',
+        'Bdollarapps_ReportSystem/js/buttons.colVis.min',
+        'Bdollarapps_ReportSystem/js/buttons.print.min',
+        'Bdollarapps_ReportSystem/js/jszip.min',
+        'Bdollarapps_ReportSystem/js/pdfmake.min',
+        'Bdollarapps_ReportSystem/js/jspdf.plugin.autotable.min',
+        'Bdollarapps_ReportSystem/js/vfs_fonts',
+    ], function($, $t){
+         $("#basicdatatable").dataTable({
+       		bInfo : false,
+        	paging:   false,
+      		showNEntries : false,
+            searching: false,
+            processing: false,
+            lengthChange: false,
+            dom: 'Bfrtip',
+            buttons: [
+                {
+                    extend: 'pdf',
+                    text  : 'Export as PDF',
+                    title : 'Usage Report',
+					customize: function(doc) {
+					    doc.content[1].table.widths =Array(doc.content[1].table.body[0].length + 1).join('*').split('');
+					    doc.defaultStyle.alignment = 'center';
+					    doc.styles.tableHeader.alignment = 'center';
+					},
+                },
+                {
+                    extend: 'csv',
+                    text  : 'Export as CSV',
+                    title : 'Usage Report'
+                },
+                {
+                    extend: 'print',
+                    text  : 'Print',
+                    title : 'Usage Report',
+                    className : 'buttons-html5'
+                }
+            ],
+        });
+             $("#agent").on('change', (function (e) {
+	            var agent = $(this).val();
+	            var month = $('#month').val();
+	            window.location = '<?php echo $this->getUrl('*/*/*', ['_current' => false, '_use_rewrite' => true]);?>?agent='+agent+'&month='+month;
+	        }));
+
+             $("#month").on('change', (function (e) {
+	            var agent = $('#agent').val();
+	            var month = $('#month').val();
+	            window.location = '<?php echo $this->getUrl('*/*/*', ['_current' => false, '_use_rewrite' => true]);?>?agent='+agent+'&month='+month;
+	           
+	        }));
+        });
+   
+
+
+</script>

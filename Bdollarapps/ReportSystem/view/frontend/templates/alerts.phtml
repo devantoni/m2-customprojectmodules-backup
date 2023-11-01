@@ -1,0 +1,1359 @@
+<?php
+$lang = $block->getData('lang');
+if($lang == 'SP'){
+	$no_will = 'Sin voluntad';
+	$spouse_no_will ='Cónyuge: Sin testamento';
+	$update_your_will='Considere actualizar su testamento';
+	$spouse_update_your_will='Cónyuge: considere actualizar su testamento';
+	$no_identity_theft_protection='Sin protección contra robo de identidad';
+	$spouse_no_identity_theft_protection='Cónyuge: No hay protección contra robo de identidad';
+	$identity_theft_protection_confirm_best_value='Protección contra robo de identidad: confirme el mejor valor';
+	$spouse_identity_theft_protection_confirm_best_value='Cónyuge: Protección contra robo de identidad: confirme el mejor valor';
+	$auto_home_comparison='Comparación de automóviles y viviendas';
+	$smart_home_security_system_confirm_the_best_value='Sistema de seguridad inteligente para el hogar: confirme el mejor valor';
+	$no_smart_home_security_system = 'Sin sistema de seguridad inteligente para el hogar';
+	$no_smart_bussiness_security_system = 'No hay un sistema de seguridad inteligente para tu negocio';
+	$smart_bussiness_security_system_confirm_the_best_value = 'Sistema de seguridad empresarial inteligente: confirme el mejor valor';
+	$tax_filing_status = 'Estado civil para efectos de impuestos';
+	$upcoming_retirement_explore_moving_retirement_fund_to_an_ira = 'Próxima jubilación: explore trasladar el fondo de jubilación a una IRA';
+	$spouse_upcoming_retirement_explore_moving_retirement_fund_to_an_ira = 'Cónyuge: Próxima jubilación: explore trasladar el fondo de jubilación a una IRA';
+	$educational_saving_account = 'Cuenta de Ahorro Educativo';
+	$no_health_insurance = 'Sin seguro médico';
+	$spouse_no_health_insurance = 'Cónyuge: Sin seguro médico';
+	$no_roth_ira = 'Sin cuenta IRA Roth';
+	$spouse_no_roth_ira = 'Cónyuge: Sin Roth IRA';
+	$roth_ira_confirm_appropriate_allocation = 'Roth IRA: confirme la asignación adecuada';
+	$spouse_roth_ira_Confirm_appropriate_allocation = 'Cónyuge: Roth IRA - Confirme la asignación adecuada';
+	$you_may_be_underfunding_your_roth_ira = 'Es posible que esté infrafinanciando su Roth IRA';
+	$spouse_you_may_be_underfunding_your_roth_ira = 'Cónyuge: Es posible que no esté financiando adecuadamente su Roth IRA';
+	$you_may_be_overfunding_your_roth_ira = 'Es posible que esté sobrefinanciando su Roth IRA';
+	$spouse_you_may_be_overfunding_your_roth_ira = 'Cónyuge: Es posible que esté sobrefinanciando su cuenta Roth IRA';
+	$traditional_ira_confirm_appropriate_allocation = 'IRA tradicional: confirme la asignación adecuada';
+	$spouse_traditional_ira_confirm_appropriate_allocation = 'Cónyuge: IRA tradicional: confirme la asignación adecuada';
+	$you_may_be_underfunding_your_traditional_ira = 'Es posible que no esté financiando lo suficiente su IRA tradicional';
+	$spouse_you_may_be_underfunding_your_traditional_ira = 'Cónyuge: Es posible que no esté financiando lo suficiente su IRA tradicional';
+	$you_may_be_overfunding_your_traditional_ira = 'Es posible que esté sobrefinanciando su IRA tradicional';
+	$spouse_you_may_be_overfunding_your_traditional_ira = 'Cónyuge: Es posible que esté financiando demasiado su IRA tradicional';
+	$you_may_be_underfunding_your_roth_or_traditional_ira = 'Es posible que esté infrafinanciando su cuenta Roth o IRA tradicional';
+	$you_may_be_overfunding_your_roth_or_traditional_ira = 'Es posible que esté sobrefinanciando su cuenta Roth o IRA tradicional';
+	$spouse_you_may_be_underfunding_your_roth_or_traditional_ira = 'Cónyuge: Es posible que no esté financiando adecuadamente su cuenta Roth o IRA tradicional';
+	$spouse_you_may_be_overfunding_your_roth_or_traditional_ira = 'Cónyuge: Es posible que esté sobrefinanciando su cuenta Roth o IRA tradicional';
+	$consider_a_rollover = 'Considere una reinversión';
+	$spouse_consider_a_rollover = 'Cónyuge: considere una reinversión';
+	$in_service_distribution = 'Distribución en servicio';
+	$spouse_in_service_distribution = 'Cónyuge: Distribución en servicio';
+	$required_minimum_distributions = 'Distribuciones mínimas requeridas';
+	$spouse_required_minimum_distributions = 'Cónyuge: Distribuciones mínimas requeridas';
+	$upcoming_inheritance = 'Próxima herencia';
+	$inheritance = 'Herencia';
+	$tax_refund = 'Devolución de impuestos';
+	$no_work_sponsored_retirement_plan_in_place = 'No existe ningún plan de jubilación patrocinado por el trabajo';
+	$spouse_no_work_sponsored_retirement_plan_in_place = 'Cónyuge: No existe ningún plan de jubilación patrocinado por el trabajo';
+	$not_contributing = '401K - Financiación insuficiente de su contrapartida';
+	$spouse_not_contributing = 'Cónyuge: 401K - Financiación insuficiente de su pareja';
+	$under_contributing_for_employer_match = '401(k) bajo contribución para igualación del empleador';
+	$spouse_under_contributing_for_employer_match = 'Cónyuge: 401(k) bajo contribución para igualación del empleador';
+	$explore_the_options_of_a_sep_simple_or_solo_retirement_plan = 'Explore las opciones de un plan de jubilación SEP, SIMPLE o Solo 401K';
+	$spouse_explore_the_options_of_a_sep_simple_or_solo_retirement_plan_for_your_spouse = 'Cónyuge: Explore las opciones de un plan de jubilación SEP, SIMPLE o Solo 401K para su cónyuge';
+	$explore_the_options_of_a_simple_retirement_plan = 'Explore las opciones de un Plan de Jubilación SIMPLE';
+	$spouse_explore_the_options_of_a_simple_retirement_Plan = 'Cónyuge: Explore las opciones de un Plan de Jubilación SIMPLE';
+	$explore_the_options_of_a_401k_retirement_plan = 'Explore las opciones de un plan de jubilación 401K';
+	$Spouse_explore_the_options_of_a_401k_retirement_plan = 'Cónyuge explora las opciones de un plan de jubilación 401k';
+	$fiduciary_you_may_be_personally_legally_liable = 'Fiduciario: usted puede ser personalmente responsable legalmente';
+	$spouse_fiduciary_you_may_be_personally_legally_liable = 'Cónyuge: Fiduciario: usted puede ser personalmente responsable legalmente';
+	$potentially_paying_high_fees_on_your_401k_plan = 'Potencialmente pagar tarifas altas en su plan 401(k)';
+	$spouse_potentially_paying_high_fees_on_your_401k_plan = 'Cónyuge: potencialmente pagar tarifas elevadas en su plan 401(k)';
+	$financial_wellness_seminar_to_increase_401k_participation = 'Seminario de bienestar financiero para aumentar la participación en 401K';
+	$spouse_financial_wellness_seminar_to_increase_401k_participation = 'Cónyuge: Seminario de bienestar financiero para aumentar la participación en el plan 401K';
+	$buy_sell_insurance = 'Seguro de Compra-Venta';
+	$spouse_buy_sell_insurance = 'Cónyuge: Seguro de Compra-Venta';
+	$consider_debt_consolidation = 'Considere una consolidación de deuda';
+	$new_home_finance = 'Financiación de viviendas nuevas';
+	$second_home_finance = 'Financiación de segunda vivienda';
+	$debt_elimination_plan = 'Plan de eliminación de deuda';
+	$cd_explore_options_with_higher_rate_of_return = 'CD: explore opciones con mayor tasa de retorno';
+	$spouse_cd_explore_options_with_higher_rate_of_return = 'Cónyuge: CD: Explore opciones con mayor tasa de rendimiento';
+	$annuities_may_annuitize = 'Las anualidades pueden anualizarse';
+	$spouse_annuities_may_annuitize = 'Cónyuge: Las anualidades pueden anualizarse';
+	$savings_account = 'Cuenta de ahorros';
+	$no_life_insurance = 'Sin seguro de vida';
+	$spouse_no_life_insurance = 'Cónyuge: Sin seguro de vida';
+	$you_may_be_underinsured = 'Es posible que tenga un seguro insuficiente';
+	$your_spouse_may_be_underinsured = 'Su cónyuge puede tener seguro insuficiente';
+	$self_term_life_insurance_confirm_best_value = 'Seguro de vida a término: confirme el mejor valor';
+	$spouse_term_life_insurance_confirm_best_value = 'Cónyuge: seguro de vida a término: confirme el mejor valor';
+	$insurance_with_saving_account = 'Seguro con cuenta de ahorro';
+	$spouse_insurance_with_saving_account = 'Cónyuge: Seguro con cuenta de ahorro';
+	$group_life_insurance = 'Seguro de vida grupal';
+	$spouse_group_life_insurance = 'Cónyuge: Seguro de vida grupal';
+	$beneficiary_update = 'Actualización de beneficiarios';
+	$increase_my_income = 'aumentar mis ingresos';
+	$result = 'Tus resultados';
+}else{
+	$no_will = 'No Will';
+	$spouse_no_will ='Spouse: No Will';
+	$update_your_will='Consider Updating Your Will';
+	$spouse_update_your_will='Spouse: Consider Updating Your Will';
+	$no_identity_theft_protection='No Identity Theft Protection';
+	$spouse_no_identity_theft_protection='Spouse: No Identity Theft Protection';
+	$identity_theft_protection_confirm_best_value='Identity Theft Protection - Confirm best value';
+	$spouse_identity_theft_protection_confirm_best_value='Spouse: Identity Theft Protection - Confirm best value';
+	$auto_home_comparison='Auto & Home comparison';
+	$smart_home_security_system_confirm_the_best_value='Smart home security system - Confirm the best value';
+	$no_smart_home_security_system = 'No smart home security system';
+	$no_smart_bussiness_security_system = 'No smart security system for your business';
+	$smart_bussiness_security_system_confirm_the_best_value = 'Smart business security system - Confirm the best value';
+	$tax_filing_status = 'Tax filing status';
+	$upcoming_retirement_explore_moving_retirement_fund_to_an_ira = 'Upcoming retirement: Explore moving retirement fund to an IRA';
+	$spouse_upcoming_retirement_explore_moving_retirement_fund_to_an_ira = 'Spouse: Upcoming retirement: Explore moving retirement fund to an IRA';
+	$educational_saving_account = 'Educational Savings Account';
+	$no_health_insurance = 'No health insurance';
+	$spouse_no_health_insurance = 'Spouse: No health Insurance';
+	$no_roth_ira = 'No Roth IRA';
+	$spouse_no_roth_ira = 'Spouse: No Roth IRA';
+	$roth_ira_confirm_appropriate_allocation = 'Roth IRA - Confirm appropriate allocation';
+	$spouse_roth_ira_Confirm_appropriate_allocation = 'Spouse: Roth IRA - Confirm appropriate allocation';
+	$you_may_be_underfunding_your_roth_ira = 'You may be Underfunding your Roth IRA';
+	$spouse_you_may_be_underfunding_your_roth_ira = 'Spouse: You may be Underfunding your Roth IRA';
+	$you_may_be_overfunding_your_roth_ira = 'You may be Overfunding your Roth IRA';
+	$spouse_you_may_be_overfunding_your_roth_ira = 'Spouse: You may be Overfunding your Roth IRA';
+	$traditional_ira_confirm_appropriate_allocation = 'Traditional IRA - Confirm appropriate allocation';
+	$spouse_traditional_ira_confirm_appropriate_allocation = 'Spouse: Traditional IRA - Confirm appropriate_allocation';
+	$you_may_be_underfunding_your_traditional_ira = 'You may be Underfunding your Traditional IRA';
+	$spouse_you_may_be_underfunding_your_traditional_ira = 'Spouse: You may be Underfunding your Traditional IRA';
+	$you_may_be_overfunding_your_traditional_ira = 'You may be Overfunding your Traditional IRA';
+	$spouse_you_may_be_overfunding_your_traditional_ira = 'Spouse: You may be Overfunding your Traditional IRA';
+	$you_may_be_underfunding_your_roth_or_traditional_ira = 'You may be Underfunding your Roth or Traditional IRA';
+	$you_may_be_overfunding_your_roth_or_traditional_ira = 'You may be Overfunding your Roth or Traditional IRA';
+	$spouse_you_may_be_underfunding_your_roth_or_traditional_ira = 'Spouse: You may be Underfunding your Roth or Traditional IRA';
+	$spouse_you_may_be_overfunding_your_roth_or_traditional_ira = 'Spouse: You may be Overfunding your Roth or Traditional IRA';
+	$consider_a_rollover = 'Consider a Rollover';
+	$spouse_consider_a_rollover = 'Spouse: Consider a Rollover';
+	$in_service_distribution = 'In-Service Distribution';
+	$spouse_in_service_distribution = 'Spouse: In-Service Distribution';
+	$required_minimum_distributions = 'Required Minimum Distributions';
+	$spouse_required_minimum_distributions = 'Spouse: Required Minimum Distributions';
+	$upcoming_inheritance = 'Upcoming Inheritance';
+	$inheritance = 'Inheritance';
+	$tax_refund = 'Tax refund';
+	$no_work_sponsored_retirement_plan_in_place = 'No work-sponsored retirement plan in place';
+	$spouse_no_work_sponsored_retirement_plan_in_place = 'Spouse: No work-sponsored retirement plan in place';
+	$not_contributing = '401K-Underfunding your Match';
+	$spouse_not_contributing = 'Spouse: 401K-Underfunding your Match';
+	$under_contributing_for_employer_match = '401(k) Under Contributing for Employer Match';
+	$spouse_under_contributing_for_employer_match = 'Spouse: 401(k) Under Contributing for Employer Match';
+	$explore_the_options_of_a_sep_simple_or_solo_retirement_plan = 'Explore the options of a SEP, SIMPLE or Solo 401K Retirement plan';
+	$spouse_explore_the_options_of_a_sep_simple_or_solo_retirement_plan_for_your_spouse = 'Spouse: Explore the options of a SEP, SIMPLE or Solo 401K Retirement plan for your spouse';
+	$explore_the_options_of_a_simple_retirement_plan = 'Explore the options of a SIMPLE Retirement Plan';
+	$spouse_explore_the_options_of_a_simple_retirement_Plan = 'Spouse: Explore the options of a SIMPLE Retirement Plan';
+	$explore_the_options_of_a_401k_retirement_plan = 'Explore the options of a 401K Retirement Plan';
+	$Spouse_explore_the_options_of_a_401k_retirement_plan = 'Spouse explore the options of a 401k Retirement Plan';
+	$fiduciary_you_may_be_personally_legally_liable = 'Fiduciary-You may be personally legally liable';
+	$spouse_fiduciary_you_may_be_personally_legally_liable = 'Spouse: Fiduciary-You may be personally legally liable';
+	$potentially_paying_high_fees_on_your_401k_plan = 'Potentially paying high fees on your 401(k) Plan';
+	$spouse_potentially_paying_high_fees_on_your_401k_plan = 'Spouse: Potentially paying high fees on your 401(k) Plan';
+	$financial_wellness_seminar_to_increase_401k_participation = 'Financial Wellness Seminar To Increase 401K Participation';
+	$spouse_financial_wellness_seminar_to_increase_401k_participation = 'Spouse: Financial Wellness Seminar To Increase 401K Participation';
+	$buy_sell_insurance = 'Buy-Sell Insurance';
+	$spouse_buy_sell_insurance = 'Spouse: Buy-Sell Insurance';
+	$consider_debt_consolidation = 'Consider a debt consolidation';
+	$new_home_finance = 'New Home finance';
+	$second_home_finance = 'Second home finance';
+	$debt_elimination_plan = 'Debt Elimination Plan';
+	$cd_explore_options_with_higher_rate_of_return = 'CD: Explore options with higher rate of return';
+	$spouse_cd_explore_options_with_higher_rate_of_return = 'Spouse: CD: Explore options with higher rate of return';
+	$annuities_may_annuitize = 'Annuities may annuitize';
+	$spouse_annuities_may_annuitize = 'Spouse: Annuities may annuitize';
+	$savings_account = 'Savings Account';
+	$no_life_insurance = 'No Life Insurance';
+	$spouse_no_life_insurance = 'Spouse: No Life Insurance';
+	$you_may_be_underinsured = 'You may be Underinsured';
+	$your_spouse_may_be_underinsured = 'Your spouse may be Underinsured';
+	$self_term_life_insurance_confirm_best_value = 'Term Life Insurance - Confirm the Best Value';
+	$spouse_term_life_insurance_confirm_best_value = 'Spouse: Term Life Insurance - Confirm the Best Value';
+	$insurance_with_saving_account = 'Insurance with saving account';
+	$spouse_insurance_with_saving_account = 'Spouse: Insurance with saving account';
+	$group_life_insurance = 'Group Life Insurance';
+	$spouse_group_life_insurance = 'Spouse: Group Life Insurance';
+	$beneficiary_update = 'Beneficiary update';
+	$increase_my_income = 'Increase my income';
+	$result = 'Your Results';
+}
+?>
+<?php $alerts = $block->getData('alerts');?>
+<div class="app-content" id="alerts">
+    <div class="side-app">
+        <div class="page-header">
+            <div>
+                <h1 class="page-title m-3 h1"><?php echo $result;?></h1>
+            </div>
+        </div>
+        <div class="m-5 mb-0">
+           <?php if($alerts):?>
+            <?php if(isset($alerts['no_will']) && $alerts['no_will'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal7">
+                    <?php echo $no_will;?></span>
+
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['spouse_no_will']) && $alerts['spouse_no_will'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal8">
+                   <?php echo $spouse_no_will;?>
+                </span>
+
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['update_your_will']) && $alerts['update_your_will'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal9">
+                     <?php echo $update_your_will;?>
+                </span>
+
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['spouse_update_your_will']) && $alerts['spouse_update_your_will'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal10">
+                   <?php echo $spouse_update_your_will;?>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['no_identity_theft_protection']) && $alerts['no_identity_theft_protection'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal1">
+                   <?php echo $no_identity_theft_protection;?>
+                </span>
+
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['spouse_no_identity_theft_protection']) && $alerts['spouse_no_identity_theft_protection'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal2">
+                   <?php echo $spouse_no_identity_theft_protection;?>
+                </span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['identity_theft_protection_confirm_best_value']) && $alerts['identity_theft_protection_confirm_best_value'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal3">
+                    <?php echo $identity_theft_protection_confirm_best_value;?>
+                </span>
+
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['spouse_identity_theft_protection_confirm_best_value']) && $alerts['spouse_identity_theft_protection_confirm_best_value'] == 1):?>
+
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal4">
+                    <?php echo $spouse_identity_theft_protection_confirm_best_value;?>
+                </span>
+
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['auto_home_comparison']) && $alerts['auto_home_comparison'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal29"><?php echo $auto_home_comparison;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['smart_home_security_system_confirm_the_best_value']) && $alerts['smart_home_security_system_confirm_the_best_value'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal29">
+                    <?php echo $smart_home_security_system_confirm_the_best_value;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['no_smart_home_security_system']) && $alerts['no_smart_home_security_system'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal29"><?php echo $no_smart_home_security_system;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['no_smart_bussiness_security_system']) && $alerts['no_smart_bussiness_security_system'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal29"><?php echo $no_smart_bussiness_security_system;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['smart_bussiness_security_system_confirm_the_best_value']) && $alerts['smart_bussiness_security_system_confirm_the_best_value'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal29"><?php echo $smart_bussiness_security_system_confirm_the_best_value;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['tax_filing_status']) && $alerts['tax_filing_status'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal52"><?php echo $tax_filing_status;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['upcoming_retirement_explore_moving_retirement_fund_to_an_ira']) && $alerts['upcoming_retirement_explore_moving_retirement_fund_to_an_ira'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal74"><?php echo $upcoming_retirement_explore_moving_retirement_fund_to_an_ira;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['spouse_upcoming_retirement_explore_moving_retirement_fund_to_an_ira']) && $alerts['spouse_upcoming_retirement_explore_moving_retirement_fund_to_an_ira'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal75"><?php echo $spouse_upcoming_retirement_explore_moving_retirement_fund_to_an_ira;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['educational_saving_account']) && $alerts['educational_saving_account'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal49"><?php echo $educational_saving_account;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['no_health_insurance']) && $alerts['no_health_insurance'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal5"><?php echo $no_health_insurance;?> </span>
+
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['spouse_no_health_insurance']) && $alerts['spouse_no_health_insurance'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal6"><?php echo $spouse_no_health_insurance;?></span>
+
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['no_roth_ira']) && $alerts['no_roth_ira'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal26"><?php echo $no_roth_ira;?></span>
+            </div>
+            <?php endif;?> 
+            <?php if(isset($alerts['spouse_no_roth_ira']) && $alerts['spouse_no_roth_ira'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal27"><?php echo $spouse_no_roth_ira;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['roth_ira_confirm_appropriate_allocation']) && $alerts['roth_ira_confirm_appropriate_allocation'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal22"><?php echo $roth_ira_confirm_appropriate_allocation;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['spouse_roth_ira_Confirm_appropriate_allocation']) && $alerts['spouse_roth_ira_Confirm_appropriate_allocation'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal23"><?php echo $spouse_roth_ira_Confirm_appropriate_allocation;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['you_may_be_underfunding_your_roth_ira']) && $alerts['you_may_be_underfunding_your_roth_ira'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal64"><?php echo $you_may_be_underfunding_your_roth_ira;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['spouse_you_may_be_underfunding_your_roth_ira']) && $alerts['spouse_you_may_be_underfunding_your_roth_ira'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal65"><?php echo $spouse_you_may_be_underfunding_your_roth_ira;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['you_may_be_overfunding_your_roth_ira']) && $alerts['you_may_be_overfunding_your_roth_ira'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal62"><?php echo $you_may_be_overfunding_your_roth_ira;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['spouse_you_may_be_overfunding_your_roth_ira']) && $alerts['spouse_you_may_be_overfunding_your_roth_ira'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal63"><?php echo $spouse_you_may_be_overfunding_your_roth_ira;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['traditional_ira_confirm_appropriate_allocation']) && $alerts['traditional_ira_confirm_appropriate_allocation'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal24"><?php echo $traditional_ira_confirm_appropriate_allocation;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['spouse_traditional_ira_confirm_appropriate_allocation']) && $alerts['spouse_traditional_ira_confirm_appropriate_allocation'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal25"><?php echo $spouse_traditional_ira_confirm_appropriate_allocation;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['you_may_be_underfunding_your_traditional_ira']) && $alerts['you_may_be_underfunding_your_traditional_ira'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal60"><?php echo $you_may_be_underfunding_your_traditional_ira;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['spouse_you_may_be_underfunding_your_traditional_ira']) && $alerts['spouse_you_may_be_underfunding_your_traditional_ira'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal61"><?php echo $spouse_you_may_be_underfunding_your_traditional_ira;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['you_may_be_overfunding_your_traditional_ira']) && $alerts['you_may_be_overfunding_your_traditional_ira'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal54"><?php echo $you_may_be_overfunding_your_traditional_ira;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['spouse_you_may_be_overfunding_your_traditional_ira']) && $alerts['spouse_you_may_be_overfunding_your_traditional_ira'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal55"><?php echo $spouse_you_may_be_overfunding_your_traditional_ira;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['you_may_be_underfunding_your_roth_or_traditional_ira']) && $alerts['you_may_be_underfunding_your_roth_or_traditional_ira'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal56"><?php echo $you_may_be_underfunding_your_roth_or_traditional_ira;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['you_may_be_overfunding_your_roth_or_traditional_ira']) && $alerts['you_may_be_overfunding_your_roth_or_traditional_ira'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal57"><?php echo $you_may_be_overfunding_your_roth_or_traditional_ira;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['spouse_you_may_be_underfunding_your_roth_or_traditional_ira']) && $alerts['spouse_you_may_be_underfunding_your_roth_or_traditional_ira'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal58"><?php echo $spouse_you_may_be_underfunding_your_roth_or_traditional_ira;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['spouse_you_may_be_overfunding_your_roth_or_traditional_ira']) && $alerts['spouse_you_may_be_overfunding_your_roth_or_traditional_ira'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal59"><?php echo $spouse_you_may_be_overfunding_your_roth_or_traditional_ira;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['consider_a_rollover']) && $alerts['consider_a_rollover'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal78"><?php echo $consider_a_rollover;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['spouse_consider_a_rollover']) && $alerts['spouse_consider_a_rollover'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal79"><?php echo $spouse_consider_a_rollover;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['in_service_distribution']) &&
+            $alerts['in_service_distribution'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal70"><?php echo $in_service_distribution;?> </span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['spouse_in_service_distribution']) &&
+            $alerts['spouse_in_service_distribution'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal71"><?php echo $spouse_in_service_distribution;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['required_minimum_distributions']) && $alerts['required_minimum_distributions'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal72"><?php echo $required_minimum_distributions;?>  </span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['spouse_required_minimum_distributions']) && $alerts['spouse_required_minimum_distributions'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal73"><?php echo $spouse_required_minimum_distributions;?>  </span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['upcoming_inheritance']) && $alerts['upcoming_inheritance'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal20"><?php echo $upcoming_inheritance;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['inheritance']) && $alerts['inheritance'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal21"><?php echo $inheritance;?> </span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['tax_refund']) && $alerts['tax_refund'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal32"><?php echo $tax_refund;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['no_work_sponsored_retirement_plan_in_place']) && $alerts['no_work_sponsored_retirement_plan_in_place'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal"><?php echo $no_work_sponsored_retirement_plan_in_place;?></span>
+
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['spouse_no_work_sponsored_retirement_plan_in_place']) && $alerts['spouse_no_work_sponsored_retirement_plan_in_place'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal"><?php echo $spouse_no_work_sponsored_retirement_plan_in_place;?></span>
+
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['401k_not_contributing']) && $alerts['401k_not_contributing'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal18"><?php echo $not_contributing;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['spouse_401k_not_contributing']) && $alerts['spouse_401k_not_contributing'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal19"><?php echo $spouse_not_contributing;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['401k_under_contributing_for_employer_match']) && $alerts['401k_under_contributing_for_employer_match'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal68"><?php echo $under_contributing_for_employer_match;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['spouse_401k_under_contributing_for_employer_match']) && $alerts['spouse_401k_under_contributing_for_employer_match'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal69"><?php echo $spouse_under_contributing_for_employer_match;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['explore_the_options_of_a_sep_simple_or_solo_401k_retirement_plan']) && $alerts['explore_the_options_of_a_sep_simple_or_solo_401k_retirement_plan'] ==1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal45"><?php echo $explore_the_options_of_a_sep_simple_or_solo_retirement_plan;?> </span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['spouse_explore_the_options_of_a_sep_simple_or_solo_401k_retirement_plan_for_your_spouse']) && $alerts['spouse_explore_the_options_of_a_sep_simple_or_solo_401k_retirement_plan_for_your_spouse'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal46"><?php echo $spouse_explore_the_options_of_a_sep_simple_or_solo_retirement_plan_for_your_spouse;?>  </span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['explore_the_options_of_a_simple_retirement_plan']) && $alerts['explore_the_options_of_a_simple_retirement_plan'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal39"><?php echo $explore_the_options_of_a_simple_retirement_plan;?>  </span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['spouse_explore_the_options_of_a_simple_retirement_Plan']) &&
+            $alerts['spouse_explore_the_options_of_a_simple_retirement_Plan'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal40"><?php echo $spouse_explore_the_options_of_a_simple_retirement_Plan;?>   </span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['explore_the_options_of_a_401k_retirement_plan']) &&
+            $alerts['explore_the_options_of_a_401k_retirement_plan'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal43"><?php echo $explore_the_options_of_a_401k_retirement_plan;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['Spouse_explore_the_options_of_a_401k_retirement_plan']) &&
+            $alerts['Spouse_explore_the_options_of_a_401k_retirement_plan'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal44"><?php echo $Spouse_explore_the_options_of_a_401k_retirement_plan;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['fiduciary_you_may_be_personally_legally_liable']) && $alerts['fiduciary_you_may_be_personally_legally_liable'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal41"><?php echo $fiduciary_you_may_be_personally_legally_liable;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['spouse_fiduciary_you_may_be_personally_legally_liable']) && $alerts['spouse_fiduciary_you_may_be_personally_legally_liable'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal42"><?php echo $spouse_fiduciary_you_may_be_personally_legally_liable;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['potentially_paying_high_fees_on_your_401k_plan']) && $alerts['potentially_paying_high_fees_on_your_401k_plan'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal37"><?php echo $potentially_paying_high_fees_on_your_401k_plan;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['spouse_potentially_paying_high_fees_on_your_401k_plan']) && $alerts['spouse_potentially_paying_high_fees_on_your_401k_plan'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal38"><?php echo $spouse_potentially_paying_high_fees_on_your_401k_plan;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['financial_wellness_seminar_to_increase_401k_participation']) && $alerts['financial_wellness_seminar_to_increase_401k_participation'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal35"><?php echo $financial_wellness_seminar_to_increase_401k_participation;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['spouse_financial_wellness_seminar_to_increase_401k_participation']) && $alerts['spouse_financial_wellness_seminar_to_increase_401k_participation'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal36"><?php echo $spouse_financial_wellness_seminar_to_increase_401k_participation;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['buy_sell_insurance']) && $alerts['buy_sell_insurance'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal33"><?php echo $buy_sell_insurance;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['spouse_buy_sell_insurance']) && $alerts['spouse_buy_sell_insurance'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal34"><?php echo $spouse_buy_sell_insurance;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['consider_debt_consolidation']) && $alerts['consider_debt_consolidation'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal53"><?php echo $consider_debt_consolidation;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['new_home_finance']) && $alerts['new_home_finance'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal53"><?php echo $new_home_finance;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['second_home_finance']) && $alerts['second_home_finance'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal53"><?php echo $second_home_finance;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['debt_elimination_plan']) && $alerts['debt_elimination_plan'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal53"><?php echo $debt_elimination_plan;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['cd_explore_options_with_higher_rate_of_return']) && $alerts['cd_explore_options_with_higher_rate_of_return'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal14"><?php echo $cd_explore_options_with_higher_rate_of_return;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['spouse_cd_explore_options_with_higher_rate_of_return']) && $alerts['spouse_cd_explore_options_with_higher_rate_of_return'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal15"><?php echo $spouse_cd_explore_options_with_higher_rate_of_return;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['annuities_may_annuitize']) && $alerts['annuities_may_annuitize'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal16"><?php echo $annuities_may_annuitize;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['spouse_annuities_may_annuitize']) && $alerts['spouse_annuities_may_annuitize'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal17"><?php echo $spouse_annuities_may_annuitize;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['savings_account']) && $alerts['savings_account'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal76"><?php echo $savings_account;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['no_life_insurance']) && $alerts['no_life_insurance'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal11"><?php echo $no_life_insurance;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['spouse_no_life_insurance']) && $alerts['spouse_no_life_insurance'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal12"><?php echo $spouse_no_life_insurance;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['you_may_be_underinsured']) && $alerts['you_may_be_underinsured'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal50"><?php echo $you_may_be_underinsured;?> </span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['your_spouse_may_be_underinsured']) && $alerts['your_spouse_may_be_underinsured'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal51"><?php echo $your_spouse_may_be_underinsured;?> </span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['self_term_life_insurance_confirm_best_value']) && $alerts['self_term_life_insurance_confirm_best_value'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal47"><?php echo $self_term_life_insurance_confirm_best_value;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['spouse_term_life_insurance_confirm_best_value']) && $alerts['spouse_term_life_insurance_confirm_best_value'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal47"><?php echo $spouse_term_life_insurance_confirm_best_value;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['insurance_with_saving_account']) && $alerts['insurance_with_saving_account'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal30"><?php echo $insurance_with_saving_account;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['spouse_insurance_with_saving_account']) && $alerts['spouse_insurance_with_saving_account'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal31"><?php echo $spouse_insurance_with_saving_account;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['group_life_insurance']) && $alerts['group_life_insurance'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal47"><?php echo $group_life_insurance;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['spouse_group_life_insurance'])
+            && $alerts['spouse_group_life_insurance'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal48"><?php echo $spouse_group_life_insurance;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['beneficiary_update']) && $alerts['beneficiary_update'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal13"><?php echo $beneficiary_update;?></span>
+            </div>
+            <?php endif;?>
+            <?php if(isset($alerts['increase_my_income']) && $alerts['increase_my_income'] == 1):?>
+            <div class="">
+										<span class="alert-inner--text"> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-507 189 24 24" style="enable-background:new -507 189 24 24; height: 30px !important;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#C62930;}
+										</style>
+										<path class="st0" d="M-502.5,209.5h15.1c1.5,0,2.5-1.7,1.7-3l-7.5-13c-0.8-1.3-2.7-1.3-3.5,0l-7.5,13
+											C-505,207.8-504.1,209.5-502.5,209.5z M-495,202.5c-0.5,0-1-0.4-1-1v-2c0-0.6,0.5-1,1-1s1,0.4,1,1v2
+											C-494,202.1-494.5,202.5-495,202.5z M-494,206.5h-2v-2h2V206.5z"/>
+										</svg></span>
+                <span class="alert-inner--text" data-toggle="modal" data-target="#myModal28"><?php echo $increase_my_income;?> $<?php echo $alerts['how_much_more_money_per_month_would_you_like_to_earn'];?></span>
+            </div>
+            <?php endif;?>
+            <?php endif;?>
+        </div>
+    </div>
+</div>

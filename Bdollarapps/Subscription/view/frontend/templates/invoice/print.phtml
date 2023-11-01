@@ -1,0 +1,158 @@
+ <style>
+    body{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    .wb-header-section{
+        width: 100%;
+        padding: 60px 0px;
+        background: #424242;
+    }
+    .wb-section-2{
+        padding: 40px 0px 0px 0px;
+    }
+    .wb-section-3{
+        padding:60px 0px; 
+    }
+
+    .wb-row{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width:100%;
+        max-width: 90%;
+        margin: 0 auto;
+    }
+    .wb-row2{
+        display: flex;
+        justify-content: space-between;
+        /* align-items: center; */
+        width:100%;
+        max-width: 90%;
+        margin: 0 auto;
+    }
+    .wb-row3{
+        display: flex;
+        justify-content: space-between;
+        /* align-items: center; */
+        width:100%;
+        max-width: 90%;
+        margin: 0 auto;
+    }
+    .wb-col1{
+        width:45%;
+    }
+    .wb-col1 img{
+        max-width: 250px;
+    }
+    .wb-col2 h2{
+        color: white;
+    }
+    .col2 button.unpaid{
+        padding: 10px 30px;
+        border: 1px solid red;
+        border-radius:50px ;
+        background: rgb(255, 255, 255);
+        color: red;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    .col2 button.paid{
+        padding: 10px 30px;
+        border: 1px solid green;
+        border-radius:50px ;
+        background: rgb(255, 255, 255);
+        color: green;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin:20px 0px;
+    }
+
+
+    p{
+        font-size: 18px;
+        margin: 0px;
+        padding:0px;
+    }
+    .wb-row3 h3{
+        color: green;
+        font-weight: bold;
+        font-size: 24px;
+    }
+    tr{
+        border:1px solid #424242;
+    }
+    th{
+        border-bottom:1px solid #424242;
+    }
+    @media print {
+        .wb-header-section{
+            background: #424242!important;
+        }
+      }
+</style>
+<section class="wb-header-section">
+    <div class="wb-row">
+        <div class="wb-col1">
+            <img src="/wp-content/uploads/2020/09/IMG_4672-1-e1601405490794-300x75.png" alt="">
+        </div>
+        <div class="wb-col2">
+            <!-- <h2>Invoicesreplace</h2> -->
+        </div>
+    </div>
+</section>
+<section class="wb-section-2">
+    <div class="wb-row2">
+        <div class="col1">
+            <p><?php echo $this->getRequest()->getParam('customerName');?></p>
+            <p><?php echo $this->getRequest()->getParam('city');?></p>
+            <p><?php echo $this->getRequest()->getParam('state');?></p>
+            <p><?php echo $this->getRequest()->getParam('country');?></p>
+            <p><?php echo $this->getRequest()->getParam('zip');?></p>
+        </div>
+        <div class="col2">
+            <p>Invoice ref: <strong> <?php echo $this->getRequest()->getParam('invoiceNumber');?> </strong></p>
+            <p>Invoice Date: <strong> <?php echo $this->getRequest()->getParam('createdOn');?></strong></p>
+            <p>Invoice Amount: <strong> <?php echo $this->getRequest()->getParam('amount');?></strong></p>
+            <p>Customer Id: <strong> <?php echo $this->getRequest()->getParam('customerId');?></strong></p>
+            <?php $status = $this->getRequest()->getParam('status');?>
+            <?php if( $status == "Unpaid"):?>
+            <button class = "unpaid">Unpaid</button>
+            <?php else:?>
+            <button class = "paid">Paid</button>
+            <?php endif;?>
+        </div>
+    </div>
+</section>
+<section class="wb-section-3">
+    <div class="wb-row3">
+        <div class="col1">
+            <h3> <?php echo $this->getRequest()->getParam('planName');?></h3>
+            <p>Subcription id: <strong> <?php echo $this->getRequest()->getParam('subscriptionId');?></strong></p>
+        </div>
+        <div class="col2">
+        </div>
+    </div>
+</section>
+        <center>        
+        <table style="width:100%; max-width:90%;">
+            <tr>
+                <th style="color:#008000;">Description</th>
+                <th style="color:#008000;">Units</th>
+                <th style="color:#008000;">Unit Price</th>
+                <th style="color:#008000;">Amount (USD)</th>
+            </tr>
+            <tr>
+                <td><?php echo $this->getRequest()->getParam('planName');?></td>
+                <td>1</td>
+                <td><?php echo $this->getRequest()->getParam('amount');?></td>
+                <td><?php echo $this->getRequest()->getParam('amount');?></td>
+            </tr>
+        </table>
+            </center>
+<script>
+   window.addEventListener("DOMContentLoaded", (event) => {
+        window.print();
+    });
+</script>

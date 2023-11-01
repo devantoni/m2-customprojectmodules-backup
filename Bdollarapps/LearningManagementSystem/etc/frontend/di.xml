@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Webkul\LearningManagementSystem\Helper\Data"
+                type="Bdollarapps\LearningManagementSystem\Helper\LearningData" />
+    <preference for="Webkul\LearningManagementSystem\Controller\Course\View"
+                type="Bdollarapps\LearningManagementSystem\Controller\Course\View" />
+    <preference for="Webkul\LearningManagementSystem\Controller\CourseStatus\Update"
+                type="Bdollarapps\LearningManagementSystem\Controller\CourseStatus\Update" />
+</config>

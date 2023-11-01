@@ -1,0 +1,195 @@
+<?php
+
+/**
+ * @var \Bdollarapps\ReportSystem\Block\Report\Recruit $block
+ */
+
+?>
+<?php $collection = $block->getSurveyCollection();?>
+<?php if($block->getGroupId() != 1): ?>
+<?php $list = $this->getAgentList();?>
+<?php endif; ?>
+<?php $months = $this->getMonths();?>
+<div class="row row-sm mt-5">
+	<div class="col-lg-12">
+		<h1 class="text-center">Recruit</h1>
+		<div class="card">
+			<div class="card-header mb-5">
+				<div class="col-md-2">
+					<?php if($block->getGroupId() != 1): ?>
+                	<label class="form-label">Agents</label>
+                	<select class="form-control select2 form-select bg-white" name="agent" id="agent">
+						<option value="0">All</option>
+                        <?php foreach($list as $key => $agent):?>
+							<option value="<?php echo $key;?>" <?php if($key==$block->getCurrentAgent()):?> selected <?php endif;?>><?php echo $agent;?></option>
+                        <?php endforeach;?>
+					</select>
+					<?php endif; ?>
+                </div>
+
+          		<div class="col-md-10">
+					<label class="form-label" style="text-align: end;">Months</label>
+					<select class="col-md-2 float-right form-control select2 form-select bg-white" name="month" id="month">
+						<option value="">All</option>
+	                    <?php foreach($months as $key => $value):?>
+							<option value="<?= date('Y-m', strtotime($value));?>" <?php if(date('Y-m', strtotime($value))==$block->getCurrentMonth()):?> selected <?php endif;?>><?= date('Y-m', strtotime($value));?></option>
+						<?php endforeach;?>
+					</select>
+				</div>
+			</div>
+			<div class="card-body">
+				<div class="table-responsive">
+					<div id="basicdatatable_wrapper" class="dataTables_wrapper dt-bootstrap5">
+						<table class="table table-bordered text-nowrap border-bottom bg-white bg-light text-center dataTable" id="basicdatatable" style="border-top: transparent !important; border-radius: 0.25rem !important; width: 1324px;" role="grid">
+							<thead>
+								<tr role="row">
+									<th class="wd-15p border-bottom bg-warning" colspan="10" style="border-right: transparent !important;" rowspan="1">Market</th>
+									<th class="wd-15p border-bottom bg-secondary text-white" style="border-right: transparent !important;" rowspan="1" colspan="1">Open to Opportunities</th>
+								</tr>
+								<tr role="row">
+									<th class="wd-15p border-0 bg-warning sorting sorting_asc" tabindex="0" aria-controls="basicdatatable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Date-Time: activate to sort column descending" style="width: 82px;">Date-Time</th>
+									<th class="wd-15p border-0 bg-warning sorting" tabindex="0" aria-controls="basicdatatable" rowspan="1" colspan="1" aria-label="Agent: activate to sort column ascending" style="width: 53px;">Agent</th>
+									<th class="wd-20p border-0 bg-warning sorting" tabindex="0" aria-controls="basicdatatable" rowspan="1" colspan="1" aria-label="Client: activate to sort column ascending" style="width: 54px;">Client</th>
+									<th class="wd-15p border-0 bg-warning sorting" tabindex="0" aria-controls="basicdatatable" rowspan="1" colspan="1" aria-label="Zip COde: activate to sort column ascending" style="width: 71px;">Zip COde</th>
+									<th class="wd-15p border-0 bg-warning sorting" tabindex="0" aria-controls="basicdatatable" rowspan="1" colspan="1" aria-label="Age (C): activate to sort column ascending" style="width: 58px;">Age (C)</th>
+									<th class="wd-10p border-0 bg-warning sorting" tabindex="0" aria-controls="basicdatatable" rowspan="1" colspan="1" aria-label="Age (S): activate to sort column ascending" style="width: 57px;">Age (S)</th>
+									<th class="wd-25p border-0 bg-warning sorting" tabindex="0" aria-controls="basicdatatable" rowspan="1" colspan="1" aria-label="Kids: activate to sort column ascending" style="width: 38px;">Kids</th>
+									<th class="wd-15p border-0 bg-warning sorting" tabindex="0" aria-controls="basicdatatable" rowspan="1" colspan="1" aria-label="Income (C): activate to sort column ascending" style="width: 85px;">Income (C)</th>
+									<th class="wd-10p border-0 bg-warning sorting" tabindex="0" aria-controls="basicdatatable" rowspan="1" colspan="1" aria-label="Income (S): activate to sort column ascending" style="width: 85px;">Income (S)</th>
+									<th class="wd-25p border-0 bg-warning sorting" tabindex="0" aria-controls="basicdatatable" rowspan="1" colspan="1" aria-label="Mortgage: activate to sort column ascending" style="width: 87px;">Mortgage</th>
+									<th class="wd-25p border-0 bg-secondary text-white sorting" tabindex="0" aria-controls="basicdatatable" rowspan="1" colspan="1" aria-label="Open: activate to sort column ascending" style="width: 192px;">Open</th>
+								</tr>
+							</thead>
+							<tbody>
+							<?php
+							$totalSelfIncome = 0;
+							$totalSpouseIncome = 0;
+							foreach ($collection as $result):
+							$totalSelfIncome += (int) $result->getData('self_annual_income_before_taxes');
+                            $totalSpouseIncome += (int) $result->getData('spouse_annual_income_before_taxes');
+							?>
+							<tr class="odd">
+								<td class="sorting_1">
+                                    <?= implode('<br/>', explode(' ', $result->getCreatedAt())) ?>
+                                </td>
+                                <td>
+                                    <?= $block->getCustomerName($result->getData('rvp_agent_id')) ?>
+                                </td>
+                                <td>
+                                    <?= $result->getInitials() ?? 'N/A' ?>
+                                </td>
+                                <td>
+                                    <?= $result->getZipCode() ?>
+                                </td>
+                                <td>
+                                    <?= $result->getData('self_what_is_your_age') ?? 'N/A' ?>
+                                </td>
+                                <td>
+                                    <?= $result->getData('spouse_what_is_your_age') ?? 'N/A' ?>
+                                </td>
+                                <td>
+                                    <?= $result->getData('do_you_have_children_under_the_age_of_18') ?? 'N/A' ?>
+                                </td>
+                                <td>
+                                    <?= $block->currencyFormat($result->getData('self_annual_income_before_taxes')??0) ?>
+                                </td>
+                                <td>
+                                    <?= $block->currencyFormat($result->getData('spouse_annual_income_before_taxes')??0)?>
+                                </td>
+                                <td>
+                                            <?= $result->getData('what_household_debts_do_you_have_mortgage') ?? 'N' ?>
+                                        </td>
+								<td>
+									<?= substr($result->getData('are_you_open_to_additional_strategies_to_increase_your_income') ?? 'N', 0, 1) ? 'Y':'N' ?>
+								</td>
+								</tr>
+                                <?php endforeach; ?>
+							</tbody>
+							<tfoot class="bg-light">
+								<tr>
+									<th colspan="7" class="border-0" rowspan="1">Total</th>
+									<th class="border-0" rowspan="1" colspan="1">
+										<?= $block->currencyFormat($totalSelfIncome) ?>
+									</th>
+									<th class="border-0" rowspan="1" colspan="1">
+										<?= $block->currencyFormat($totalSelfIncome) ?>
+									</th>
+									<th class="border-0" rowspan="1" colspan="1"></th>
+									<th class="border-0" rowspan="1" colspan="1"></th>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+    require([
+        'jquery',
+        'Bdollarapps_ReportSystem/js/datatables.responsive.min',
+        'Bdollarapps_ReportSystem/js/responsive.bootstrap5.min',
+        'Bdollarapps_ReportSystem/js/buttons.bootstrap5.min',
+        'Bdollarapps_ReportSystem/js/buttons.html5.min',
+        'Bdollarapps_ReportSystem/js/buttons.colVis.min',
+        'Bdollarapps_ReportSystem/js/buttons.print.min',
+        'Bdollarapps_ReportSystem/js/jszip.min',
+        'Bdollarapps_ReportSystem/js/pdfmake.min',
+        'Bdollarapps_ReportSystem/js/jspdf.plugin.autotable.min',
+        'Bdollarapps_ReportSystem/js/vfs_fonts', 
+        'domReady!'
+    ], function($, $t){
+        $(document).ready(function() {
+             $("#basicdatatable").dataTable({
+		       		bInfo : false,
+		        	paging:   false,
+		      		showNEntries : false,
+		            searching: false,
+		            processing: false,
+		            lengthChange: false,
+		        	order: [[0, 'desc']],
+		            dom: 'Bfrtip',
+		            buttons: [
+		                {
+		                    extend: 'pdf',
+		                    text  : 'Export as PDF',
+		                    title : 'Available Assets',
+		    				orientation: 'landscape',
+							customize: function(doc) {
+							    doc.defaultStyle.alignment = 'center';
+							    doc.styles.tableHeader.alignment = 'center';
+							},
+		                },
+		                {
+		                    extend: 'csv',
+		                    text  : 'Export as CSV',
+		                    title : 'Available Assets',
+		                },
+		                {
+		                    extend: 'print',
+		                    text  : 'Print',
+		                    title : 'Available Assets',
+		    				orientation: 'landscape',
+		                    className : 'buttons-html5',
+		                }
+		            ],
+        });
+
+             $("#agent").on('change', (function (e) {
+	            var agent = $(this).val();
+	            var month = $('#month').val();
+	            window.location = '<?php echo $this->getUrl('*/*/*', ['_current' => false, '_use_rewrite' => true]);?>?agent='+agent+'&month='+month;
+	        }));
+
+             $("#month").on('change', (function (e) {
+	            var agent = $('#agent').val();
+	            var month = $('#month').val();
+	            window.location = '<?php echo $this->getUrl('*/*/*', ['_current' => false, '_use_rewrite' => true]);?>?agent='+agent+'&month='+month;
+	           
+	        }));
+        });
+    })
+
+
+</script>
